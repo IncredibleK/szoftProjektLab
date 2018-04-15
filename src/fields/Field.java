@@ -2,7 +2,6 @@ package fields;
 
 import enums.Direction;
 import things.Thing;
-
 import java.util.HashMap;
 import java.util.Map;
 

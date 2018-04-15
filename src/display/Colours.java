@@ -1,5 +1,4 @@
 package display;
-
 import java.util.Random;
 
 public class Colours {

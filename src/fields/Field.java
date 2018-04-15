@@ -37,7 +37,7 @@ public class Field {
      * @return
      */
     public Field GetNeighbour(Direction d){
-        Skeleton.getInstance().Return(this);
+
         return neighbours.get(d);
     }
 
@@ -48,10 +48,9 @@ public class Field {
      */
     public int Add(Thing t){
         this.thing = t;
-        String name = Skeleton.getInstance().GetName(t);
-        Skeleton.getInstance().Call(this, this, "Interact("+name+")");
+
         int tmp = Interact(t);
-        Skeleton.getInstance().Return(this);
+
         return tmp;
     }
 
@@ -60,7 +59,7 @@ public class Field {
      */
     public void Remove(Thing t){
         this.thing = null;
-        Skeleton.getInstance().Return(this);
+
     }
 
     /**
@@ -78,11 +77,10 @@ public class Field {
      */
     public int TryMove(Direction d){
         //return neighbours.get(d).TryMove(d, this.thing);
-        String name = Skeleton.getInstance().GetName(this.thing);
-        Skeleton.getInstance().Call(this, neighbours.get(d), "TryMove(d,"+name+")");
+
         int tmp = neighbours.get(d).TryMove(d, this.thing);
 
-        Skeleton.getInstance().Return(this);
+
         return tmp;
     }
 
@@ -95,15 +93,13 @@ public class Field {
     public int TryMove(Direction d, Thing t){
         int tmp =0;
         if (this.thing==null){
-            String name = Skeleton.getInstance().GetName(this);
-            Skeleton.getInstance().Call(this, t, "AcceptMove("+name+")");
+
             tmp = t.AcceptMove(this);
         } else{
-            String name = Skeleton.getInstance().GetName(this.thing);
-            Skeleton.getInstance().Call(this, t, "MakeCollision(d, "+name+")");
+
             tmp = t.MakeCollision(d, this.thing);
         }
-        Skeleton.getInstance().Return(this);
+
         return tmp;
     }
 

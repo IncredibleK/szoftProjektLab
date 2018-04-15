@@ -1,18 +1,37 @@
 package game;
 
+import enums.Direction;
+import things.Player;
+
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Prototype {
-
+    /**
+     * Field referencia, azonosító párokat tartalmaz.
+     */
     private Map<Object, String> fields;
+    /**
+     * Thing referencia, azonosító párokat tartalmaz.
+     */
     private Map<Object, String> things;
+    /**
+     * Player azonosító, referencia párokat tartalmaz.
+     */
     private Map<String, Object > players;
+    /**
+     * aktuális warehouseról egy példány.
+     */
     private Warehouse ware;
+    /**
+     * Önmagából egy példány.
+     */
     private static Prototype prototype = new Prototype();
 
-
+    /**
+     *
+     */
     private Prototype() {
         fields = new HashMap<Object, String>();
         things = new HashMap<Object, String>();
@@ -153,19 +172,48 @@ public class Prototype {
     }
 
     private void movePlayer(String playername, String direction) {
-
+        Player a =(Player)players.get(playername);
+        a.StartMove(Direction.valueOf(direction));
     }
 
     private void createEffect(String playername, String effect) {
-
+        Player a =(Player)players.get(playername);
+        if(effect.equals("O")){
+            a.PlaceOil();
+        }
+        else if(effect.equals("H")){
+            a.PlaceHoney();
+        }
     }
 
     private void checkDifference(String filePath1, String filePath2) {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filePath1));
+            BufferedReader br1 = new BufferedReader(new FileReader(filePath1));
+            String s1,s2;
+            boolean b=true;
+            while((s1=br.readLine())!=null && (s2=br1.readLine())!=null){
+             if(!(s1.equals(s2))){
+                 b=false;
+                 System.out.println("Hiba:");
+                 System.out.println(s1);
+                 System.out.println("");
+                 System.out.println(s2);
+             }
+
+            }
+            if(b)System.out.println("100%-os egyezes");
+            br.close();
+            br1.close();
+        }catch(IOException e){
+            System.out.println(e.getStackTrace());
+        }
 
     }
 
     private void loadMap(String filePath) {
-
+        Game a = Game.getInstance();
+        a.StartGame(filePath);
     }
 
     private void exit() {

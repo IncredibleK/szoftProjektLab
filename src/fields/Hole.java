@@ -1,6 +1,5 @@
 package fields;
 
-import game.Skeleton;
 import things.Thing;
 
 public class Hole extends Field {

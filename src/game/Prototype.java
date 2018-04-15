@@ -1,56 +1,146 @@
 package game;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Prototype {
-    /**
-     * A tarolo tárolja a dolgok referenciáját és a nevűket értékként.
-     */
-    private Map<Object ,String> tarolo;
-    /**
-     * Saját magáról példány <<Singleton>>
-     */
+
+    private Map<Object, String> fields;
+    private Map<Object, String> things;
+    private Warehouse ware;
     private static Prototype prototype = new Prototype();
 
-    /**
-     * Konstruktor, HashMap inicializálása.
-     */
-    private Prototype(){
-        tarolo = new HashMap<Object, String>();
+
+    private Prototype() {
+        fields = new HashMap<Object, String>();
+        things = new HashMap<Object, String>();
     }
 
-    /**
-     * A magából készült példány elérése.
-     * @return A saját magából létrehozott példány.
-     */
-    public static Prototype getInstance(){
+    public static Prototype getInstance() {
         return prototype;
     }
 
-    /**
-     * tarolo feltöltése egy elemmel.
-     * @param a dolog referenciája
-     * @param b név
-     */
-    public void Add(Object a, String b){
-        tarolo.put(a,b);
+
+    public void AddWarehouse(Warehouse a) {
+        ware = a;
     }
 
-    /**
-     * tarolóban tárolt dolog nevét visszaadja
-     * @param a dolog referenciája
-     * @return
-     */
-    public String GetName(Object a){ return tarolo.get(a); }
 
-    /**
-     * tarolo teljes kiürítése
-     */
-    public void Clear(){
-        tarolo.clear();
+    private String GetThingName(Object a) {
+        return things.get(a);
     }
+
+    private String GetFieldName(Object a) {
+        return fields.get(a);
+    }
+
+
+    private void Clear() {
+        things.clear();
+        fields.clear();
+        ware = null;
+    }
+
+    public void Start() {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        while (true) {
+            try {
+                String s = br.readLine();
+                String[] st = s.split(" ");
+                switch (st[0]) {
+                    case "loadInput":
+                        loadInput(st[1]);
+                        break;
+                    case "saveOutput":
+                        saveOutput(st[1]);
+                        break;
+                    case "movePlayer":
+                        movePlayer(st[1], st[2]);
+                        break;
+                    case "createEffect":
+                        createEffect(st[1], st[2]);
+                        break;
+                    case "checkDifference":
+                        checkDifference(st[1], st[2]);
+                        break;
+                    case "loadMap":
+                        loadMap(st[1]);
+                        break;
+                    case "exit":
+                        exit();
+                        break;
+                    default:
+                        break;
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void loadInput(String filePath) {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filePath));
+            String s;
+            while(!((s=br.readLine()).equals("exit"))){
+                String[] st = s.split(" ");
+                switch (st[0]) {
+                    case "saveOutput":
+                        saveOutput(st[1]);
+                        break;
+                    case "movePlayer":
+                        movePlayer(st[1], st[2]);
+                        break;
+                    case "createEffect":
+                        createEffect(st[1], st[2]);
+                        break;
+                    case "checkDifference":
+                        checkDifference(st[1], st[2]);
+                        break;
+                    case "loadMap":
+                        loadMap(st[1]);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            exit();
+        }catch(IOException e){
+            System.out.println(e.getStackTrace());
+        }
+
+
+    }
+
+    private void saveOutput(String filePath) {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(filePath));
+        }catch(IOException e){
+            System.out.println(e.getStackTrace());
+        }
+    }
+
+    private void movePlayer(String playername, String direction) {
+
+    }
+
+    private void createEffect(String playername, String effect) {
+
+    }
+
+    private void checkDifference(String filePath1, String filePath2) {
+
+    }
+
+    private void loadMap(String filePath) {
+
+    }
+
+    private void exit() {
+        Clear();
+    }
+
 }
+

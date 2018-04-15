@@ -3,7 +3,6 @@ package things;
 import enums.Direction;
 import fields.Field;
 import fields.Wall;
-import game.Skeleton;
 import game.Warehouse;
 
 public class Thing {

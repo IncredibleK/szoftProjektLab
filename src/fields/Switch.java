@@ -1,6 +1,5 @@
 package fields;
 
-import game.Skeleton;
 import things.Box;
 
 public class Switch extends Field {

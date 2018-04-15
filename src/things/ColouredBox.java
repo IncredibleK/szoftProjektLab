@@ -1,7 +1,6 @@
 package things;
 
 import display.Colours;
-import game.Skeleton;
 
 public class ColouredBox extends Box{
 

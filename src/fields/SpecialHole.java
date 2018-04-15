@@ -14,10 +14,8 @@ public class SpecialHole extends Hole {
      */
     public int Interact(Thing t){
         if(open){
-
             t.Die();
         }
-
         return 0;
     }
 

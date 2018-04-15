@@ -22,9 +22,11 @@ public class Game {
     /**
      * Játék kezdését biztosító folyamat, még nem megvalósított
      */
-    public void StartGame(){}
+    public void StartGame(){
+        running.StartingProcess();
+     }
 
-    /**
+     /**
      * Jelenlegi raktár referencia beállítása
      * @param r Raktár
      */

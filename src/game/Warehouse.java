@@ -1,4 +1,8 @@
 package game;
+import fields.Field;
+import things.Thing;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Raktárt viselkedését leíró osztály
@@ -13,10 +17,15 @@ public class Warehouse {
      */
     private int playerCount;
 
+    private Field [][] fields;
+    private List<Thing> things;
     /**
      * Kezdési folyamat
      */
-    public void StartingProcess(){}
+    public void StartingProcess(){
+
+
+    }
 
     public void setPlayerCount(int szam){
         playerCount = szam;
@@ -24,6 +33,8 @@ public class Warehouse {
     public void setColouredBoxCount(int szam){
         colouredBoxCount = szam;
     }
+
+
 
     /**
      * Színes dobozok számát csökkentő függvény, véget vet a játéknak, ha egy feltétel teljesül

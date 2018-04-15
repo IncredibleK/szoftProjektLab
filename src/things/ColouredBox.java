@@ -4,7 +4,7 @@ import display.Colours;
 
 public class ColouredBox extends Box{
 
-    Colours colour;
+    private Colours colour;
 
     /**
      * Ha Hole-ra lép, ez meghívódik és megsemmisül a ColouredBox,

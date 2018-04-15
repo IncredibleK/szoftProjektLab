@@ -8,6 +8,7 @@ public class Player extends Thing {
 
     /** A játékos ponjai */
     private int points;
+    private double strength;
 
     /**
      * A kapott értékkel növeli a Player pontszámának értékét.
@@ -22,9 +23,10 @@ public class Player extends Thing {
      *  nem léphet tovább a cselekvést indító Player.
      * @param d A mozgás iránya
      * @param p Az érkező Player
+     * @param s A játékos ereje
      * @return
      */
-    public int Collide (Direction d, Player p){
+    public int Collide (Direction d, Player p, double s){
         return 0;
     }
 
@@ -32,11 +34,12 @@ public class Player extends Thing {
      * Ütközeti a Player-t és a Box-ot. Box tolja a Playert.
      * @param d A mozgás iránya
      * @param b Az érkező Box
+     * @param s A játékos ereje
      * @return
      */
-    public int Collide (Direction d, Box b){
+    public int Collide (Direction d, Box b, double s){
         //tmp: <return field.TryPlyer(d);> szét kellett választani h jó sorrendben fusson a call és return
-        int tmp = field.TryMove(d);
+        int tmp = field.TryMove(d, strength);
         return tmp;
     }
 
@@ -50,7 +53,7 @@ public class Player extends Thing {
         if (tmp instanceof Wall){ //5.3.8
             //fal
         }else{
-            tmp.TryMove(d, this);
+            tmp.TryMove(d, this, strength);
         }
     }
 
@@ -74,4 +77,17 @@ public class Player extends Thing {
         field.Remove(this);
     }
 
+    /**
+     * Növeli a Field effect-jének az értékét.
+     */
+    public void PlaceHoney(){
+        field.setEffect(1.5);
+    }
+
+    /**
+     * Csökkenti a Field effect-jének az értékét.
+     */
+    public void PlaceOil(){
+        field.setEffect(0.5);
+    }
 }

@@ -21,8 +21,8 @@ public class Thing {
      * @param t A használni kívánt mezőt elfogaló Thing
      * @return
      */
-    public int MakeCollision (Direction d, Thing t){
-        int tmp = t.Collide(d, this);
+    public int MakeCollision (Direction d, Thing t, double s){
+        int tmp = t.Collide(d, this, s);
         return tmp;
     }
 
@@ -32,7 +32,7 @@ public class Thing {
      * @param t Az érkező Thing
      * @return 0
      */
-    public int Collide (Direction d, Thing t){
+    public int Collide (Direction d, Thing t, double s){
         return 0;
     }
 
@@ -60,6 +60,7 @@ public class Thing {
      * A leszármazottak felüldefiniálják
      */
     public void Die(){}
+
     public void SetField(Field f)
     {
         field = f;

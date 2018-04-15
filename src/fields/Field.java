@@ -9,13 +9,15 @@ public class Field {
 
     private Map<Direction, Field> neighbours;
     protected Thing thing;
+    protected double effect;
 
     /**
-     * Konstruktor: neighbours map inicializálása
+     * Konstruktor: neighbours map inicializálása, effect beállítása
      */
     public Field(){
         //Kell konstruktorba? Skeleton.getInstance.Return(this);
         neighbours = new HashMap<Direction, Field>();
+        effect = 1;
     }
 
     /**
@@ -79,12 +81,13 @@ public class Field {
     /**
      * A mezőn álló játékos ezzel jelzi helyváltoztatási szándékát.
      * @param d A mozgás iránya
+     * @param s A játékos maradék ereje
      * @return
      */
-    public int TryMove(Direction d){
+    public int TryMove(Direction d, double s){
         //return neighbours.get(d).TryMove(d, this.thing);
 
-        int tmp = neighbours.get(d).TryMove(d, this.thing);
+        int tmp = neighbours.get(d).TryMove(d, this.thing, effect);
 
 
         return tmp;
@@ -94,16 +97,19 @@ public class Field {
      * A szomszédos mező a felőle érkező mozgás igényt ennek meghívásával jelzi.
      * @param d A mozgás iránya
      * @param t Az érkezni kívánó Thing
+     * @param s A játékos maradék ereje
      * @return
      */
-    public int TryMove(Direction d, Thing t){
+    public int TryMove(Direction d, Thing t, double s){
         int tmp =0;
+        if(s < effect)
+            return 0;
         if (this.thing==null){
 
             tmp = t.AcceptMove(this);
         } else{
 
-            tmp = t.MakeCollision(d, this.thing);
+            tmp = t.MakeCollision(d, this.thing, s);
         }
 
         return tmp;
@@ -111,5 +117,9 @@ public class Field {
 
     public void SetThing(Thing t){ thing = t;}
 
+
+    public void setEffect(double effect) {
+        this.effect = effect;
+    }
 
 }

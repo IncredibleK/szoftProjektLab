@@ -132,15 +132,20 @@ public class Prototype {
             BufferedWriter bw = new BufferedWriter(new FileWriter(filePath));
             for(int j=0;j<ware.getRow();j++){
                 for(int i=0;i<ware.getColumn();i++){
-
+                    bw.write(fields.get(ware.getField(j,i)));
+                    if(i!=ware.getColumn()-1)bw.write(",");
                 }
+                bw.write("\n");
             }
-
+            bw.write("\n");
             for(int j=0;j<ware.getRow();j++){
                 for(int i=0;i<ware.getColumn();i++){
-
+                    bw.write(fields.get(ware.getThing(j,i)));
+                    if(i!=ware.getColumn()-1)bw.write(",");
                 }
+                bw.write("\n");
             }
+            bw.close();
 
         }catch(IOException e){
             System.out.println(e.getStackTrace());

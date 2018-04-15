@@ -1,0 +1,5 @@
+loadMap Maps/PS.txt
+movePlayer A Right
+saveOutput xy.txt
+checkDifference Output/3.txt xy.txt
+exit

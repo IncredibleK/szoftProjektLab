@@ -1,0 +1,5 @@
+loadMap Maps/JFMM.txt
+movePlayer A Right
+saveOutput xy.txt
+checkDifference Output/12.txt xy.txt
+exit

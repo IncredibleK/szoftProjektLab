@@ -1,0 +1,5 @@
+loadMap Maps/E.txt
+createEffect A O
+saveOutput xy.txt
+checkDifference Output/7.txt xy.txt
+exit

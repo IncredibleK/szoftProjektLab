@@ -1,0 +1,5 @@
+loadMap Maps/JFT.txt
+movePlayer A Right
+saveOutput xy.txt
+checkDifference Output/11.txt xy.txt
+exit

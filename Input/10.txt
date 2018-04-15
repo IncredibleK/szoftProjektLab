@@ -1,0 +1,5 @@
+loadMap Maps/JLYE.txt
+movePlayer A Right
+saveOutput xy.txt
+checkDifference Output/10.txt xy.txt
+exit

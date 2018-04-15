@@ -1,0 +1,9 @@
+F,F,F,F
+F,F,F,F
+F,F,F,F
+F,F,F,F
+
+n,n,B,n
+n,A,D,n
+n,n,n,n
+n,n,n,n

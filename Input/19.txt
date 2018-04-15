@@ -1,0 +1,5 @@
+loadMap Maps/KBSLY.txt
+movePlayer A Right
+saveOutput xy.txt
+checkDifference Output/19.txt xy.txt
+exit

@@ -16,7 +16,6 @@ public class Player extends Thing {
      */
     public void AddPoints(int points){
         this.points += points;
-        Skeleton.getInstance().Return(this);
     }
 
     /**
@@ -27,7 +26,6 @@ public class Player extends Thing {
      * @return
      */
     public int Collide (Direction d, Player p){
-        Skeleton.getInstance().Return(this);
         return 0;
     }
 
@@ -39,10 +37,7 @@ public class Player extends Thing {
      */
     public int Collide (Direction d, Box b){
         //tmp: <return field.TryPlyer(d);> szét kellett választani h jó sorrendben fusson a call és return
-        Skeleton.getInstance().Call(this, field,"TryMove(d)");
         int tmp = field.TryMove(d);
-
-        Skeleton.getInstance().Return(this);
         return tmp;
     }
 
@@ -52,16 +47,12 @@ public class Player extends Thing {
      * @param d A mozgás iránya
      */
     public void StartMove(Direction d){
-        Skeleton.getInstance().Call(this, field,"GetNeighbour(d)");
         Field tmp = field.GetNeighbour(d);
         if (tmp instanceof Wall){ //5.3.8
             //fal
         }else{
-            String name = Skeleton.getInstance().GetName(this);
-            Skeleton.getInstance().Call(this, field,"TryMove(d, "+name+")");
             tmp.TryMove(d, this);
         }
-        Skeleton.getInstance().Return(this);
     }
 
     /**
@@ -70,9 +61,7 @@ public class Player extends Thing {
      * @return 0
      */
     public int AcceptMove (Wall w){
-        Skeleton.getInstance().Call(this,this,"Die()");
         Die();
-        Skeleton.getInstance().Return(this);
         return 0;
     }
 
@@ -82,14 +71,8 @@ public class Player extends Thing {
      * a játékosok számát csökkenti eggyel.
      */
     public void Die(){
-        Skeleton.getInstance().Call(this, warehouse,"PDecrease()");
         warehouse.PDecrease();
-
-        String name = Skeleton.getInstance().GetName(this);
-        Skeleton.getInstance().Call(this, field,"Remove("+name+")");
         field.Remove(this);
-
-        Skeleton.getInstance().Return(this);
     }
 
 }

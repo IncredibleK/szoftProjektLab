@@ -1,4 +1,5 @@
 package game;
+import enums.Direction;
 import fields.Field;
 import things.Thing;
 import java.util.ArrayList;
@@ -23,9 +24,7 @@ public class Warehouse {
      * Kezdési folyamat
      */
     public void StartingProcess(){
-
-
-
+        SetNeighbours();
     }
 
     public int getRow()
@@ -86,4 +85,38 @@ public class Warehouse {
             game.EndGame();
         }
     }
+
+    /**
+     * Beállítja az összes szomszédját a mezőknek
+     */
+    public void SetNeighbours() {
+        //Iteráció sorokra
+        for (int curRow = 0; curRow < fields.length; curRow++)
+        {
+            //Iteráció oszlopokra
+            for(int curColumn = 0; curColumn < fields[0].length; curColumn++)
+            {
+                // Bal oldali szomszéd beállítása
+                if(curColumn-1 >= 0)
+                    fields[curRow][curColumn].SetNeighbour(
+                            Direction.Left,fields[curColumn-1][curRow]);
+
+                // Jobb oldali szomszéd beállítása
+                if(curColumn+1 < fields[0].length)
+                    fields[curRow][curColumn].SetNeighbour(
+                            Direction.Right,fields[curColumn+1][curRow]);
+
+                // Felső szomszéd beállítása
+                if(curRow-1 >= 0)
+                    fields[curRow][curColumn].SetNeighbour(
+                            Direction.Up,fields[curColumn][curRow-1]);
+
+                // Alsó szomszéd beállítása
+                if(curRow+1 < fields.length)
+                    fields[curRow][curColumn].SetNeighbour(
+                            Direction.Down,fields[curColumn][curRow+1]);
+            }
+        }
+    }
+
 }

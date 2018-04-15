@@ -13,8 +13,8 @@ public class Box extends Thing {
      * @param t Az érkező Thing
      * @return
      */
-    public int Collide(Direction d, Thing t){
-        int tmp = field.TryMove(d);
+    public int Collide(Direction d, Thing t, double s){
+        int tmp = field.TryMove(d,s);
         return tmp;
     }
 

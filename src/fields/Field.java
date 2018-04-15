@@ -30,13 +30,21 @@ public class Field {
 
     /**
      * Visszaadja abban az irányban lévő szomszédos mezőt
-     * !!csak skeletonban
      * @param d Szomszéd iránya
      * @return
      */
     public Field GetNeighbour(Direction d){
 
         return neighbours.get(d);
+    }
+
+    /**
+     * Visszaadja a jelenleg eltárolt, rajta lévő tárgy referenciáját
+     * @return
+     */
+    public Thing getThing()
+    {
+        return thing;
     }
 
     /**

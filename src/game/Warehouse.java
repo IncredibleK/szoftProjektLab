@@ -27,6 +27,7 @@ public class Warehouse {
 
 
     }
+
     public int getRow()
     {
         return fields.length;
@@ -42,6 +43,14 @@ public class Warehouse {
     public void setField(int row, int column, Field field)
     {
         fields[row][column] = field;
+    }
+    public Field getField(int row, int column)
+    {
+        return fields[row][column];
+    }
+    public Thing getThing(int row, int column)
+    {
+        return fields[row][column].getThing();
     }
 
     public void setPlayerCount(int szam){

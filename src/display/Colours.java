@@ -33,7 +33,6 @@ public class Colours {
      */
     public Colours RandomColour()
     {
-        Skeleton.getInstance().Return(this);
         return new Colours();
     }
 

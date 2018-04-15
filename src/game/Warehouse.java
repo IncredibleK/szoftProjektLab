@@ -30,31 +30,23 @@ public class Warehouse {
      */
     public void CBDecrease() {
         colouredBoxCount--;
-        if (Skeleton.getInstance().Option("colouredBoxCount egyenlo 0-val?")) {
+        if (true) {
              // Játék referencia lekérdezése
             Game game = Game.getInstance();
-             // Hívás előtt a skeleton kiíró függvényét meghívjuk
-            Skeleton.getInstance().Call(this,game,"EndGame()");
              // Véget ér a játék, meghívjuk a singleton Game osztálynak a függvényét
             game.EndGame();
         }
-         // Visszatérünk, meghívjuk a visszatérési függvényt
-        Skeleton.getInstance().Return(this);
     }
     /**
      *  Játékosok számát csökkentő függvény, véget vet a játéknak, ha egy feltétel teljesül
      */
     public void PDecrease(){
         playerCount--;
-        if(Skeleton.getInstance().Option("playerCount egyenlo 1-el?")) {
+        if(true) {
              // Játék referencia lekérdezése
             Game game = Game.getInstance();
-             //Hívás előtt a skeleton kiíró függvényét meghívjuk
-            Skeleton.getInstance().Call(this,game,"EndGame()");
              // Véget ér a játék, meghívjuk a singleton Game osztálynak a függvényét
             game.EndGame();
         }
-         // Visszatérünk, meghívjuk a visszatérési függvényt
-        Skeleton.getInstance().Return(this);
     }
 }

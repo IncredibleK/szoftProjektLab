@@ -33,7 +33,5 @@ public class Game {
     /**
      * Játék befejezését biztosító folyamat
      */
-    public void EndGame(){
-        Skeleton.getInstance().LevelDecrease();
-    }
+    public void EndGame(){ }
 }

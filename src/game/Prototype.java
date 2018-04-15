@@ -8,6 +8,7 @@ public class Prototype {
 
     private Map<Object, String> fields;
     private Map<Object, String> things;
+    private Map<String, Object > players;
     private Warehouse ware;
     private static Prototype prototype = new Prototype();
 
@@ -24,6 +25,18 @@ public class Prototype {
 
     public void AddWarehouse(Warehouse a) {
         ware = a;
+    }
+
+    public void AddField(Object a, String b){
+        fields.put(a,b);
+    }
+
+    public void AddThing(Object a, String b){
+        things.put(a,b);
+    }
+
+    public void AddPlayer(String b, Object a){
+        players.put(b,a);
     }
 
 
@@ -117,6 +130,18 @@ public class Prototype {
     private void saveOutput(String filePath) {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(filePath));
+            for(int j=0;j<ware.getRow();j++){
+                for(int i=0;i<ware.getColumn();i++){
+
+                }
+            }
+
+            for(int j=0;j<ware.getRow();j++){
+                for(int i=0;i<ware.getColumn();i++){
+
+                }
+            }
+
         }catch(IOException e){
             System.out.println(e.getStackTrace());
         }

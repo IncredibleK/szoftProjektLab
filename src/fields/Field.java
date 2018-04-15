@@ -1,9 +1,7 @@
 package fields;
 
 import enums.Direction;
-import game.Skeleton;
 import things.Thing;
-
 import java.util.HashMap;
 import java.util.Map;
 

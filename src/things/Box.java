@@ -1,7 +1,6 @@
 package things;
 
 import enums.Direction;
-import game.Skeleton;
 
 public class Box extends Thing {
 

@@ -18,13 +18,30 @@ public class Warehouse {
     private int playerCount;
 
     private Field [][] fields;
-    private List<Thing> things;
+
     /**
      * Kezdési folyamat
      */
     public void StartingProcess(){
 
 
+
+    }
+    public int getRow()
+    {
+        return fields.length;
+    }
+    public int getColumn()
+    {
+        return fields[0].length;
+    }
+    public void setAllFields(int row, int column)
+    {
+        fields = new Field[row][column];
+    }
+    public void setField(int row, int column, Field field)
+    {
+        fields[row][column] = field;
     }
 
     public void setPlayerCount(int szam){

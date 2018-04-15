@@ -1,7 +1,6 @@
 package fields;
 
 import display.Colours;
-import game.Skeleton;
 import things.ColouredBox;
 
 public class ColouredField extends Field {

@@ -1,6 +1,4 @@
 package display;
-import game.Skeleton;
-
 import java.util.Random;
 
 public class Colours {

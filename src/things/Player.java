@@ -3,6 +3,7 @@ package things;
 import enums.Direction;
 import fields.Field;
 import fields.Wall;
+import game.Prototype;
 
 public class Player extends Thing {
 
@@ -10,6 +11,11 @@ public class Player extends Thing {
     private int points;
     private double strength;
 
+    public Player()
+    {
+        points = 0;
+        strength = 3;
+    }
     /**
      * A kapott értékkel növeli a Player pontszámának értékét.
      * @param points hozzá adandó pontok száma
@@ -54,6 +60,7 @@ public class Player extends Thing {
             //fal
         }else{
             tmp.TryMove(d, this, strength);
+            System.out.print("bent erre:"+d.toString()+"\n");
         }
     }
 
@@ -82,6 +89,7 @@ public class Player extends Thing {
      */
     public void PlaceHoney(){
         field.setEffect(1.5);
+        Prototype.getInstance().ReplaceField(field,"H");
     }
 
     /**
@@ -89,5 +97,6 @@ public class Player extends Thing {
      */
     public void PlaceOil(){
         field.setEffect(0.5);
+        Prototype.getInstance().ReplaceField(field,"O");
     }
 }

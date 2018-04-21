@@ -1,6 +1,8 @@
 package things;
 
 import enums.Direction;
+import fields.Field;
+import fields.Wall;
 
 public class Box extends Thing {
 
@@ -18,10 +20,13 @@ public class Box extends Thing {
         return tmp;
     }
 
+
+
     /**
      * Hole-ra érkezve meghívódik ez a metódust
      */
     public void Die(){
         field.Remove(this);
     }
+
 }

@@ -42,6 +42,7 @@ public class Thing {
      * @return
      */
     public int AcceptMove(Field f){
+        System.out.println(this+" "+field+" "+f+"\n");
         field.Remove(this);
         int tmp = f.Add(this);
         return tmp;

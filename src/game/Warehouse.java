@@ -103,22 +103,22 @@ public class Warehouse {
                 // Bal oldali szomszéd beállítása
                 if(curColumn-1 >= 0)
                     fields[curRow][curColumn].SetNeighbour(
-                            Direction.Left,fields[curColumn-1][curRow]);
+                            Direction.Left,fields[curRow][curColumn-1]);
 
                 // Jobb oldali szomszéd beállítása
                 if(curColumn+1 < fields[0].length)
                     fields[curRow][curColumn].SetNeighbour(
-                            Direction.Right,fields[curColumn+1][curRow]);
+                            Direction.Right,fields[curRow][curColumn+1]);
 
                 // Felső szomszéd beállítása
                 if(curRow-1 >= 0)
                     fields[curRow][curColumn].SetNeighbour(
-                            Direction.Up,fields[curColumn][curRow-1]);
+                            Direction.Up,fields[curRow-1][curColumn]);
 
                 // Alsó szomszéd beállítása
                 if(curRow+1 < fields.length)
                     fields[curRow][curColumn].SetNeighbour(
-                            Direction.Down,fields[curColumn][curRow+1]);
+                            Direction.Down,fields[curRow+1][curColumn]);
             }
         }
     }

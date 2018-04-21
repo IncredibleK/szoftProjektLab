@@ -35,9 +35,10 @@ public class ColouredField extends Field {
      */
     public int Interact(ColouredBox cb){
         int tmp=0;
+        System.out.println("itt\nASSASA\nqwwq\n");
         if (thing==box){
             tmp=1;
-
+            System.out.println("haláL!\n");
             thing.Die();
         }
 

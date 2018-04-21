@@ -1,9 +1,11 @@
 package fields;
 
 import enums.Direction;
+import game.Prototype;
 import things.Thing;
 import java.util.HashMap;
 import java.util.Map;
+import things.*;
 
 public class Field {
 
@@ -18,6 +20,7 @@ public class Field {
         //Kell konstruktorba? Skeleton.getInstance.Return(this);
         neighbours = new HashMap<Direction, Field>();
         effect = 1;
+        thing = null;
     }
 
     /**
@@ -56,8 +59,8 @@ public class Field {
      */
     public int Add(Thing t){
         this.thing = t;
-        int tmp = Interact(t);
         t.SetField(this);
+        int tmp = Interact(t);
         return tmp;
     }
 
@@ -75,6 +78,8 @@ public class Field {
      * @return
      */
     public int Interact(Thing t){ return 0;}
+
+    public int Interact(ColouredBox cb){return 0;}
 
 
     /**
@@ -104,13 +109,12 @@ public class Field {
         if(s < effect)
             return 0;
         if (this.thing==null){
-
             tmp = t.AcceptMove(this);
         } else{
-
             tmp = t.MakeCollision(d, this.thing, s);
+            if(this.thing == null)
+                tmp = t.AcceptMove(this);
         }
-
         return tmp;
     }
 

@@ -54,6 +54,12 @@ public class Prototype {
         ware = a;
     }
 
+    public void ReplaceField(Object a, String newName)
+    {
+        fields.remove(a);
+        fields.put(a,newName);
+    }
+
     /**
      * Field hozzáadása fields listához.
      * @param a Field
@@ -270,6 +276,7 @@ public class Prototype {
      * @param effect Effect azonosító
      */
     private void createEffect(String playername, String effect) {
+        System.out.println("itt");
         Player a =(Player)players.get(playername);
         if(effect.equals("O")){
             a.PlaceOil();
@@ -290,6 +297,7 @@ public class Prototype {
             BufferedReader br1 = new BufferedReader(new FileReader(filePath1));
             String s1,s2;
             boolean b=true;
+
             while((s1=br.readLine())!=null && (s2=br1.readLine())!=null){
              if(!(s1.equals(s2))){
                  b=false;

@@ -139,6 +139,7 @@ public class Game {
                         //Első játékos létrehozása
                         case"A":
                             Player a = new Player();
+                            a.setWarehouse(running);
                             Prototype.getInstance().AddPlayer("A",a);
                             Prototype.getInstance().AddThing(a,"A");
                             running.getField(curRow,curColumn).Add(a);
@@ -146,6 +147,7 @@ public class Game {
                         //Második játékos létrehozása
                         case "B":
                             Player b = new Player();
+                            b.setWarehouse(running);
                             Prototype.getInstance().AddPlayer("B",b);
                             Prototype.getInstance().AddThing(b,"B");
                             running.getField(curRow,curColumn).Add(b);
@@ -153,12 +155,14 @@ public class Game {
                         //Láda létrehozása (nem ad pontot)
                         case"D":
                             Box d = new Box();
+                            d.setWarehouse(running);
                             Prototype.getInstance().AddThing(d,"D");
                             running.getField(curRow,curColumn).Add(d);
                             break;
                         //Színes láda létrehozása (a láda, amit ha a megfelelő helyre tolnak, ad pontot)
                         case "K":
                             ColouredBox k = new ColouredBox();
+                            k.setWarehouse(running);
                             Prototype.getInstance().AddThing(k,"K");
                             running.getField(curRow,curColumn).Add(k);
                             break;

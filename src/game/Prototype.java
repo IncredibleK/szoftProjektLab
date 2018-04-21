@@ -218,6 +218,7 @@ public class Prototype {
      */
     private void saveOutput(String filePath) {
         try {
+            String s = "Output/"+filePath;
             PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(filePath)));
             for(int j=0;j<ware.getRow();j++){
                 for(int i=0;i<ware.getColumn();i++){

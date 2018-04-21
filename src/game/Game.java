@@ -83,10 +83,9 @@ public class Game {
                             break;
                         //Színesmező (végső doboznak a helye) létrehozása
                             case "C":
-                                ColouredField cb = new ColouredField();
-                                cb.InitColour();
-                                running.setField(curRow,curColumn,cb);
-                                Prototype.getInstance().AddField(cb,"C");
+                                ColouredField cf = new ColouredField();
+                                running.setField(curRow,curColumn,cf);
+                                Prototype.getInstance().AddField(cf,"C");
                                 break;
                         //Nyitott speciális Lyuk
                         case "L":
@@ -123,6 +122,7 @@ public class Game {
                 }
                 System.out.println();
             }
+            System.out.println();
             //Üres sor beolvasása
             bufferedReader.readLine();
 
@@ -169,7 +169,7 @@ public class Game {
                 }
                 System.out.println();
             }
-
+            System.out.println();
             bufferedReader.readLine();
 
             //Párosítást megvalósító függvény (Színesláda - Színesmezőhöz, illetve Kapcsoló - Speciális Lyukhoz)

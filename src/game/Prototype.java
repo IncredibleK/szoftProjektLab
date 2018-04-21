@@ -229,6 +229,7 @@ public class Prototype {
                 System.out.println();
                 pw.println();
             }
+            System.out.println();
             pw.println();
             Thing t;
             for(int j=0;j<ware.getRow();j++){
@@ -245,7 +246,7 @@ public class Prototype {
                     if(i!=ware.getColumn()-1)pw.write(",");
                 }
                 System.out.println();
-               pw.println();
+                pw.println();
             }
             pw.close();
         }catch(IOException e){

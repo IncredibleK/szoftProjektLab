@@ -18,7 +18,7 @@ public class Colours {
     /**
      * Random színt generáló konstruktor.
      */
-    private Colours(){
+    public Colours(){
         Random rand = new Random();
         Red = rand.nextInt()%256;
         Green = rand.nextInt()%256;
@@ -29,10 +29,7 @@ public class Colours {
      * Random színt készít.
      * @return Random színt visszaad.
      */
-    public Colours RandomColour()
-    {
-        return new Colours();
-    }
+  //  public Colours RandomColour() { return new Colours(); }
 
     /**
      *

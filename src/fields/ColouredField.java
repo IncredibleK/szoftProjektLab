@@ -14,20 +14,17 @@ public class ColouredField extends Field {
     public void SetBox(ColouredBox cb){ box=cb; }
     private void SetColour(Colours c){ this.colour = c; }
 
+    public ColouredField()
+    {
+        colour = new Colours();
+    }
+
     /**
      * Beállítja a saját és a hozzá tartozó színes doboz színét.
      */
     public void InitColour(){
-        //inithez kell?// Skeleton.getInstance.Call(this, ,"RandomColour");
-        Colours c = colour.RandomColour();
-
-        //inithez kell?// Skeleton.getInstance.Call(this, this,"SetColour");
-        SetColour(c);
-
-        //inithez kell?// Skeleton.getInstance.Call(this, box,"SetColour");
-        box.SetColour(c);
-
-        //inithez kell?// Skeleton.getInstance.Return(this);
+        // Skeleton.getInstance.Call(this, box,"SetColour");
+        box.SetColour(colour);
     }
 
     /**

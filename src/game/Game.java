@@ -53,7 +53,7 @@ public class Game {
                 //Második iteráció, ami az oszlopokon megy végig
                 for(int curColumn = 0; curColumn<column; curColumn++)
                 {
-                    System.out.print(sorok[curColumn]);
+              //      System.out.print(sorok[curColumn]);
                     //Sorok alapján a megfelelő mező létrehozása, prototípus-ba átadjuk, és hozzáadjuk a raktárhoz
                     switch(sorok[curColumn])
                     {
@@ -120,9 +120,9 @@ public class Game {
                             break;
                     }
                 }
-                System.out.println();
+          //      System.out.println();
             }
-            System.out.println();
+         //   System.out.println();
             //Üres sor beolvasása
             bufferedReader.readLine();
 
@@ -133,7 +133,7 @@ public class Game {
                 String[] sorok = line.split(",");
                 for(int curColumn = 0; curColumn<column; curColumn++)
                 {
-                    System.out.print(sorok[curColumn]);
+                 //   System.out.print(sorok[curColumn]);
                     switch(sorok[curColumn])
                     {
                         //Első játékos létrehozása
@@ -171,9 +171,9 @@ public class Game {
                             break;
                     }
                 }
-                System.out.println();
+            //    System.out.println();
             }
-            System.out.println();
+           // System.out.println();
             bufferedReader.readLine();
 
             //Párosítást megvalósító függvény (Színesláda - Színesmezőhöz, illetve Kapcsoló - Speciális Lyukhoz)

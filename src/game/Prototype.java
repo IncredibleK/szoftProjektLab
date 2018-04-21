@@ -154,15 +154,18 @@ public class Prototype {
                         break;
                     case "movePlayer":
                         movePlayer(st[1], st[2]);
+                        Draw();
                         break;
                     case "createEffect":
                         createEffect(st[1], st[2]);
+                        Draw();
                         break;
                     case "checkDifference":
                         checkDifference(st[1], st[2]);
                         break;
                     case "loadMap":
                         loadMap(st[1]);
+                        Draw();
                         break;
                     case "exit":
                         Clear();
@@ -171,10 +174,30 @@ public class Prototype {
                     default:
                         break;
                 }
-
             } catch (IOException e) {
-                System.out.println("Start");
+                System.out.println(e.toString());
             }
+        }
+    }
+
+    void Draw()
+    {
+        for(int j=0;j<ware.getRow();j++){
+            for(int i=0;i<ware.getColumn();i++){
+                System.out.print(fields.get(ware.getField(j,i)));
+            }
+            System.out.println();
+        }
+        System.out.println();
+        Thing t;
+        for(int j=0;j<ware.getRow();j++){
+            for(int i=0;i<ware.getColumn();i++){
+                if((t = ware.getThing(j,i))!=null)
+                    System.out.print(things.get(ware.getThing(j, i)));
+                else
+                    System.out.print("n");
+            }
+            System.out.println();
         }
     }
 
@@ -211,8 +234,6 @@ public class Prototype {
             }
             exit();
         }catch(IOException e){
-            System.out.println(System.getProperty("user.dir"));
-            System.out.println();
             System.out.println(e.toString());
         }
 
@@ -228,35 +249,35 @@ public class Prototype {
             PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(filePath)));
             for(int j=0;j<ware.getRow();j++){
                 for(int i=0;i<ware.getColumn();i++){
-                    System.out.print(fields.get(ware.getField(j,i)));
+                //    System.out.print(fields.get(ware.getField(j,i)));
                     pw.write(fields.get(ware.getField(j,i)));
                     if(i!=ware.getColumn()-1)pw.write(",");
                 }
-                System.out.println();
+               // System.out.println();
                 pw.println();
             }
-            System.out.println();
+         //   System.out.println();
             pw.println();
             Thing t;
             for(int j=0;j<ware.getRow();j++){
                 for(int i=0;i<ware.getColumn();i++){
                     if((t = ware.getThing(j,i))!=null) {
-                        System.out.print(things.get(ware.getThing(j, i)));
+             //           System.out.print(things.get(ware.getThing(j, i)));
                         pw.write(things.get(ware.getThing(j, i)));
                     }
                     else
                     {
-                        System.out.print("n");
+           //             System.out.print("n");
                         pw.write("n");
                     }
                     if(i!=ware.getColumn()-1)pw.write(",");
                 }
-                System.out.println();
+          //      System.out.println();
                 pw.println();
             }
             pw.close();
         }catch(IOException e){
-            System.out.println(e.getStackTrace().toString());
+            System.out.println(e.toString());
         }
     }
 
@@ -276,7 +297,6 @@ public class Prototype {
      * @param effect Effect azonosító
      */
     private void createEffect(String playername, String effect) {
-        System.out.println("itt");
         Player a =(Player)players.get(playername);
         if(effect.equals("O")){
             a.PlaceOil();
@@ -312,7 +332,7 @@ public class Prototype {
             br.close();
             br1.close();
         }catch(IOException e){
-            System.out.println(e.getStackTrace().toString());
+            System.out.println(e.toString());
         }
 
     }

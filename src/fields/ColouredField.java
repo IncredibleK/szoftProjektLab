@@ -2,6 +2,7 @@ package fields;
 
 import display.Colours;
 import things.ColouredBox;
+import things.Thing;
 
 public class ColouredField extends Field {
 
@@ -30,15 +31,13 @@ public class ColouredField extends Field {
     /**
      * Ha színes láda kerül rá, ellenőrzi, hogy a hozzá tartozó áll e rajta,
      * ha igen, pontot ad és kitörli.
-     * @param cb Rajta álló színes láda
+     * @param t Rajta álló tárgy
      * @return pont
      */
-    public int Interact(ColouredBox cb){
+    public int Interact(Thing t){
         int tmp=0;
-        System.out.println("itt\nASSASA\nqwwq\n");
         if (thing==box){
             tmp=1;
-            System.out.println("haláL!\n");
             thing.Die();
         }
 

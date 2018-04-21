@@ -1,6 +1,7 @@
 package fields;
 
 import things.Box;
+import things.*;
 import game.Prototype;
 
 public class Switch extends Field {
@@ -11,24 +12,22 @@ public class Switch extends Field {
 
     /**
      * Ha egy doboz eltávolítódik a kapcsolóról, a hozzá tartozó lyuk becsukódik
-     * @param b A róla távozó doboz
+     * @param t A róla távozó tárgy
      */
-    public void Remove(Box b){
+    public void Remove(Thing t){
         this.thing=null;
         hole.SetOpen(false);
-        Prototype.getInstance().ReplaceField(this,"Q");
     }
 
     /**
      * A kapcsolóra érkező doboz meghívja, kinyitja a hozzá tartozó lyukat
-     * @param b
+     * @param t Rálépő tárgy
      * @return
      */
-    public int Interact(Box b) {
-        hole.SetOpen(true);
-        System.out.println("bent");
-        Prototype.getInstance().ReplaceField(this,"L");
+    public int Interact(Thing t) {
+        if(hole!=null && t instanceof Box) {
+            hole.SetOpen(true);
+        }
         return 0;
     }
-
 }

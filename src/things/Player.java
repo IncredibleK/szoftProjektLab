@@ -32,8 +32,9 @@ public class Player extends Thing {
      * @param s A játékos ereje
      * @return
      */
-    public int Collide (Direction d, Player p, double s){
-        return 0;
+
+  /*  public int Collide (Direction d, Player p, double s){
+        System.out.println("Player collide2 override");return 0;
     }
 
     /**
@@ -42,13 +43,33 @@ public class Player extends Thing {
      * @param b Az érkező Box
      * @param s A játékos ereje
      * @return
-     */
+
     public int Collide (Direction d, Box b, double s){
         //tmp: <return field.TryPlyer(d);> szét kellett választani h jó sorrendben fusson a call és return
+        System.out.println("Player collide override");
         int tmp = field.TryMove(d, strength);
         return tmp;
     }
-
+*/
+    /**
+     *
+    Ütközeti a Player-t és a Box-ot. Box tolja a Playert.
+            * @param d A mozgás iránya
+     * @param t Az érkező Box, vagy Player
+     * @param s A játékos ereje
+     * @return
+     */
+    public int Collide (Direction d, Thing t, double s){
+        int tmp = 0;
+        if(t instanceof Player)
+            return 0;
+        else
+        {        //tmp: <return field.TryPlyer(d);> szét kellett választani h jó sorrendben fusson a call és return
+           // System.out.println("Player collide override");
+            tmp = field.TryMove(d, strength);
+        }
+        return tmp;
+    }
     /**
      * Az egész mozgatást egy irányba elkezdi,
      * majd pontszámát növeli
@@ -58,10 +79,22 @@ public class Player extends Thing {
         Field tmp = field.GetNeighbour(d);
         if (tmp instanceof Wall){ //5.3.8
             //fal
-        }else{
-            tmp.TryMove(d, this, strength);
-            System.out.print("bent erre:"+d.toString()+"\n");
         }
+        else
+            tmp.TryMove(d, this, strength);
+
+    }
+
+    public int AcceptMove (Field f){
+        int tmp = 0;
+        if(f instanceof Wall)
+            Die();
+        else
+        {
+            field.Remove(this);
+            tmp = f.Add(this);
+        }
+        return tmp;
     }
 
     /**

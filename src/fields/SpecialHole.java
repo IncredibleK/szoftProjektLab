@@ -1,5 +1,6 @@
 package fields;
 
+import game.Prototype;
 import things.Thing;
 
 public class SpecialHole extends Hole {
@@ -24,7 +25,10 @@ public class SpecialHole extends Hole {
      */
     public void SetOpen(boolean op) {
         open=op;
-
+        if(op)
+            Prototype.getInstance().ReplaceField(this,"L");
+        else
+            Prototype.getInstance().ReplaceField(this,"Q");
     }
 
 }

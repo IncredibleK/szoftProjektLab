@@ -79,6 +79,8 @@ public class Field {
      */
     public int Interact(Thing t){ return 0;}
 
+    public int Interact(ColouredBox cb){return 0;}
+
 
     /**
      * A mezőn álló játékos ezzel jelzi helyváltoztatási szándékát.
@@ -88,10 +90,7 @@ public class Field {
      */
     public int TryMove(Direction d, double s){
         //return neighbours.get(d).TryMove(d, this.thing);
-
         int tmp = neighbours.get(d).TryMove(d, this.thing, effect);
-
-
         return tmp;
     }
 
@@ -104,8 +103,9 @@ public class Field {
      */
     public int TryMove(Direction d, Thing t, double s){
         int tmp =0;
-        if(s < effect)
+        if(s < effect) {
             return 0;
+        }
         if (this.thing==null){
             tmp = t.AcceptMove(this);
         } else{
@@ -117,7 +117,6 @@ public class Field {
     }
 
     public void SetThing(Thing t){ thing = t;}
-
 
     public void setEffect(double effect) {
         this.effect = effect;

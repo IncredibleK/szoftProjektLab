@@ -10,7 +10,6 @@ public class Hole extends Field {
      * @return 0
      */
     public int Interact(Thing t){
-        System.out.println("megfog halni!\n");
         t.Die();
         return 0;
     }

@@ -5,7 +5,7 @@ import fields.Field;
 import fields.Wall;
 import game.Warehouse;
 
-public class Thing {
+public abstract class Thing {
 
     Warehouse warehouse;
     Field field;
@@ -32,9 +32,7 @@ public class Thing {
      * @param t Az érkező Thing
      * @return 0
      */
-    public int Collide (Direction d, Thing t, double s){
-        return 0;
-    }
+    public abstract int Collide (Direction d, Thing t, double s);
 
     /**
      * Végrehajtja a léptetést. A használni kívánt szabad mező hívja
@@ -42,15 +40,12 @@ public class Thing {
      * @return
      */
     public int AcceptMove(Field f){
-        System.out.println(this+" "+field+" "+f+"\n");
-        field.Remove(this);
-        int tmp = f.Add(this);
+        int tmp = 0;
+        if(!(f instanceof Wall)) {
+            field.Remove(this);
+            tmp = f.Add(this);
+        }
         return tmp;
-    }
-
-    public void AddField(Field f)
-    {
-
     }
 
     /**
@@ -65,7 +60,7 @@ public class Thing {
     /**
      * A leszármazottak felüldefiniálják
      */
-    public void Die(){}
+    public abstract void Die();
 
     public void SetField(Field f)
     {

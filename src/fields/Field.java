@@ -79,8 +79,6 @@ public class Field {
      */
     public int Interact(Thing t){ return 0;}
 
-    public int Interact(ColouredBox cb){return 0;}
-
 
     /**
      * A mezőn álló játékos ezzel jelzi helyváltoztatási szándékát.

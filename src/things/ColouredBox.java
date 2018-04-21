@@ -16,12 +16,6 @@ public class ColouredBox extends Box{
         field.Remove(this);
     }
 
-    public int AcceptMove(Field f){
-        System.out.println(this+" "+field+" "+f+"\n");
-        field.Remove(this);
-        int tmp = f.Add((ColouredBox)this);
-        return tmp;
-    }
     public void SetColour(Colours c){ colour = c;}
 
 }

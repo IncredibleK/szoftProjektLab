@@ -27,6 +27,10 @@ public class Warehouse {
         SetNeighbours();
     }
 
+    public void SetDimensions(int row,int column)
+    {
+        fields = new Field[row][column];
+    }
     public int getRow()
     {
         return fields.length;

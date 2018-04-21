@@ -132,6 +132,7 @@ public class Prototype {
      */
     public void Start() {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        //System.setProperty( "user.dir", "C:\\Users\\aron1\\OneDrive\\Dokumentumok\\GitHub\\proto\\out\\production\\Proto\\Input\\" );
         while (true) {
             try {
                 String s = br.readLine();
@@ -163,7 +164,7 @@ public class Prototype {
                 }
 
             } catch (IOException e) {
-                e.printStackTrace();
+                System.out.println("Start");
             }
         }
     }
@@ -176,6 +177,7 @@ public class Prototype {
         try {
             BufferedReader br = new BufferedReader(new FileReader(filePath));
             String s;
+           // System.setProperty( "user.dir", "C:\\Users\\aron1\\OneDrive\\Dokumentumok\\GitHub\\proto\\out\\production\\Proto\\Input\\" );
             while(!((s=br.readLine()).equals("exit"))){
                 String[] st = s.split(" ");
                 switch (st[0]) {
@@ -200,7 +202,9 @@ public class Prototype {
             }
             exit();
         }catch(IOException e){
-            System.out.println(e.getStackTrace());
+            System.out.println(System.getProperty("user.dir"));
+            System.out.println();
+            System.out.println(e.toString());
         }
 
 
@@ -231,7 +235,7 @@ public class Prototype {
             bw.close();
 
         }catch(IOException e){
-            System.out.println(e.getStackTrace());
+            System.out.println(e.getStackTrace().toString());
         }
     }
 
@@ -285,7 +289,7 @@ public class Prototype {
             br.close();
             br1.close();
         }catch(IOException e){
-            System.out.println(e.getStackTrace());
+            System.out.println(e.getStackTrace().toString());
         }
 
     }

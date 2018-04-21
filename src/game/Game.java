@@ -39,6 +39,7 @@ public class Game {
             //Oszlopok száma
             int column = Integer.parseInt(bufferedReader.readLine());
 
+            running.SetDimensions(row,column);
             //Üres sor átlépése
             bufferedReader.readLine();
             //Az első iteráció, ami a soron
@@ -51,6 +52,7 @@ public class Game {
                 //Második iteráció, ami az oszlopokon megy végig
                 for(int curColumn = 0; curColumn<column; curColumn++)
                 {
+                    System.out.print(sorok[curColumn]);
                     //Sorok alapján a megfelelő mező létrehozása, prototípus-ba átadjuk, és hozzáadjuk a raktárhoz
                     switch(sorok[curColumn])
                     {
@@ -118,6 +120,7 @@ public class Game {
                             break;
                     }
                 }
+                System.out.println();
             }
             //Üres sor beolvasása
             bufferedReader.readLine();
@@ -129,6 +132,7 @@ public class Game {
                 String[] sorok = line.split(",");
                 for(int curColumn = 0; curColumn<column; curColumn++)
                 {
+                    System.out.print(sorok[curColumn]);
                     switch(sorok[curColumn])
                     {
                         //Első játékos létrehozása
@@ -162,6 +166,7 @@ public class Game {
                             break;
                     }
                 }
+                System.out.println();
             }
 
             bufferedReader.readLine();

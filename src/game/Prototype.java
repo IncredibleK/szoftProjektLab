@@ -6,6 +6,7 @@ import things.Player;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
+import things.Thing;
 
 public class Prototype {
     /**
@@ -217,24 +218,35 @@ public class Prototype {
      */
     private void saveOutput(String filePath) {
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(filePath));
+            PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(filePath)));
             for(int j=0;j<ware.getRow();j++){
                 for(int i=0;i<ware.getColumn();i++){
-                    bw.write(fields.get(ware.getField(j,i)));
-                    if(i!=ware.getColumn()-1)bw.write(",");
+                    System.out.print(fields.get(ware.getField(j,i)));
+                    pw.write(fields.get(ware.getField(j,i)));
+                    if(i!=ware.getColumn()-1)pw.write(",");
                 }
-                bw.write("\n");
+                System.out.println();
+                pw.println();
             }
-            bw.write("\n");
+            pw.println();
+            Thing t;
             for(int j=0;j<ware.getRow();j++){
                 for(int i=0;i<ware.getColumn();i++){
-                    bw.write(fields.get(ware.getThing(j,i)));
-                    if(i!=ware.getColumn()-1)bw.write(",");
+                    if((t = ware.getThing(j,i))!=null) {
+                        System.out.print(things.get(ware.getThing(j, i)));
+                        pw.write(things.get(ware.getThing(j, i)));
+                    }
+                    else
+                    {
+                        System.out.print("n");
+                        pw.write("n");
+                    }
+                    if(i!=ware.getColumn()-1)pw.write(",");
                 }
-                bw.write("\n");
+                System.out.println();
+               pw.println();
             }
-            bw.close();
-
+            pw.close();
         }catch(IOException e){
             System.out.println(e.getStackTrace().toString());
         }

@@ -49,6 +49,7 @@ public class Player extends Thing {
      * @param d A mozgás iránya
      */
     public void StartMove(Direction d){
+        System.out.println(d.toString());
         Field tmp = field.GetNeighbour(d);
         if (tmp instanceof Wall){ //5.3.8
             //fal

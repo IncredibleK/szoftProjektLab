@@ -56,9 +56,8 @@ public class Field {
      */
     public int Add(Thing t){
         this.thing = t;
-
         int tmp = Interact(t);
-
+        t.SetField(this);
         return tmp;
     }
 

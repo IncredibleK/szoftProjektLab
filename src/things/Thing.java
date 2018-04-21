@@ -47,6 +47,11 @@ public class Thing {
         return tmp;
     }
 
+    public void AddField(Field f)
+    {
+
+    }
+
     /**
      * Nem csinál semmit
      * @param w A kapott fal, amire lépnie kéne.

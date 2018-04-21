@@ -1,5 +1,0 @@
-loadMap Maps/JML.txt
-movePlayer A Right
-saveOutput xy.txt
-checkDifference Output/8.txt xy.txt
-exit

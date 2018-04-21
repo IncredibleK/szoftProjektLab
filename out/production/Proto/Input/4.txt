@@ -1,5 +1,0 @@
-loadMap Maps/PS.txt
-movePlayer A Up
-saveOutput xy.txt
-checkDifference Output/4.txt xy.txt
-exit

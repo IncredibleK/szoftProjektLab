@@ -1,5 +1,0 @@
-loadMap Maps/LFT.txt
-movePlayer A Right
-saveOutput xy.txt
-checkDifference Output/15.txt xy.txt
-exit

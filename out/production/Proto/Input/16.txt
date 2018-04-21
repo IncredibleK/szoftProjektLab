@@ -1,5 +1,0 @@
-loadMap Maps/JLL.txt
-movePlayer A Right
-saveOutput xy.txt
-checkDifference Output/16.txt xy.txt
-exit

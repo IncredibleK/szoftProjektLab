@@ -1,5 +1,0 @@
-loadMap Maps/LLYR.txt
-movePlayer A Right
-saveOutput xy.txt
-checkDifference Output/13.txt xy.txt
-exit

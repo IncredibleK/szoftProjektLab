@@ -29,6 +29,8 @@ public class Game {
      */
     public void StartGame(String file){
         String line = null;
+        running = new Warehouse();
+        Prototype.getInstance().AddWarehouse(running);
         try {
             // BufferedReader-be csomagolt FileReader, ami alapján a raktárat, és azoknak az entitásait felépítjük
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file));

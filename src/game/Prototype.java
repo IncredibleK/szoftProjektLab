@@ -159,6 +159,7 @@ public class Prototype {
                         loadMap(st[1]);
                         break;
                     case "exit":
+                        Clear();
                         exit();
                         break;
                     default:

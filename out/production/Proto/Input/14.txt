@@ -1,5 +1,0 @@
-loadMap Maps/SZLVHK.txt
-movePlayer A Right
-saveOutput xy.txt
-checkDifference Output/14.txt xy.txt
-exit

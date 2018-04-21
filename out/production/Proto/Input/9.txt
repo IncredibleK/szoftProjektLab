@@ -1,5 +1,0 @@
-loadMap Maps/JMJ.txt
-movePlayer A Right
-saveOutput xy.txt
-checkDifference Output/9.txt xy.txt
-exit

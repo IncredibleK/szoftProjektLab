@@ -1,4 +1,0 @@
-loadMap Maps/mapcreate.txt
-saveOutput xy.txt
-checkDifference Output/1.txt xy.txt
-exit

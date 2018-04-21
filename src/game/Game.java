@@ -29,7 +29,6 @@ public class Game {
      */
     public void StartGame(String file){
         String line = null;
-        running = new Warehouse();
         try {
             // BufferedReader-be csomagolt FileReader, ami alapján a raktárat, és azoknak az entitásait felépítjük
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
@@ -172,35 +171,35 @@ public class Game {
             bufferedReader.readLine();
 
             //Párosítást megvalósító függvény (Színesláda - Színesmezőhöz, illetve Kapcsoló - Speciális Lyukhoz)
-            while( (line = bufferedReader.readLine())!=null)
-            {
+            while( (line = bufferedReader.readLine())!=null) {
                 // A sorok ;-vel elválasztva, ezzel megkapjuk a párosítás típusát,
                 // illetve a párosítandó objektumok két koordinátáját
                 String[] sorok = line.split(";");
-                // Első objektum koordinátája
-                String [] koord1 = sorok[1].split(",");
-                // Második objektum koordinátája
-                String[] koord2 = sorok[2].split(",");
+                if (sorok.length == 3) {
+                    // Első objektum koordinátája
+                    String[] koord1 = sorok[1].split(",");
+                    // Második objektum koordinátája
+                    String[] koord2 = sorok[2].split(",");
 
-                // Első string alapján a típus megkülönböztetése
-                switch(sorok[0])
-                {
-                    //Színesláda - Színesmezőhöz párosítás megvalósítása
-                    case "C":
-                        //Színesmező példányosítása
-                        ColouredField cb =  (ColouredField) running.getField(   Integer.parseInt(koord1[0]), Integer.parseInt(koord1[1]) );
-                        //Színesmezőhöz rendeljük a színesládát
-                        cb.SetBox((ColouredBox) running.getField(   Integer.parseInt(koord2[0]), Integer.parseInt(koord2[1])  ).getThing());
-                        break;
-                    //Kapcsoló - Speciális Lyuk párosítás megvalósítása
-                    case"S":
-                        //Kapcsoló példányosítása
-                        Switch s =  (Switch) running.getField(  Integer.parseInt(koord1[0]), Integer.parseInt(koord1[1]));
-                        //Kapcsolóhöz rendeljük a Speciális Lyukat
-                        s.SetHole(  (SpecialHole) running.getField(   Integer.parseInt(koord2[0]), Integer.parseInt(koord2[1]) ) );
-                        break;
-                    default:
-                        break;
+                    // Első string alapján a típus megkülönböztetése
+                    switch (sorok[0]) {
+                        //Színesláda - Színesmezőhöz párosítás megvalósítása
+                        case "C":
+                            //Színesmező példányosítása
+                            ColouredField cb = (ColouredField) running.getField(Integer.parseInt(koord1[0]), Integer.parseInt(koord1[1]));
+                            //Színesmezőhöz rendeljük a színesládát
+                            cb.SetBox((ColouredBox) running.getField(Integer.parseInt(koord2[0]), Integer.parseInt(koord2[1])).getThing());
+                            break;
+                        //Kapcsoló - Speciális Lyuk párosítás megvalósítása
+                        case "S":
+                            //Kapcsoló példányosítása
+                            Switch s = (Switch) running.getField(Integer.parseInt(koord1[0]), Integer.parseInt(koord1[1]));
+                            //Kapcsolóhöz rendeljük a Speciális Lyukat
+                            s.SetHole((SpecialHole) running.getField(Integer.parseInt(koord2[0]), Integer.parseInt(koord2[1])));
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
             //Bezárjük a bufferedReader-t

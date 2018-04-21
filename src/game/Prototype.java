@@ -35,6 +35,7 @@ public class Prototype {
     private Prototype() {
         fields = new HashMap<Object, String>();
         things = new HashMap<Object, String>();
+        players = new HashMap<String, Object>();
     }
 
     /**
@@ -96,7 +97,7 @@ public class Prototype {
      * @param a Player
      */
     public void AddPlayer(String b, Object a){
-        players.put(b,a);
+        players.put(b,(Object)a);
     }
 
     /**

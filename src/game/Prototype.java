@@ -143,6 +143,7 @@ public class Prototype {
         //System.setProperty( "user.dir", "C:\\Users\\aron1\\OneDrive\\Dokumentumok\\GitHub\\proto\\out\\production\\Proto\\Input\\" );
         while (true) {
             try {
+                System.out.printf("Command:\n->");
                 String s = br.readLine();
                 String[] st = s.split(" ");
                 switch (st[0]) {
@@ -322,7 +323,7 @@ public class Prototype {
              }
 
             }
-            if(b)System.out.println("100%-os egyezes");
+            if(b)System.out.println("100%-os egyezes\n\n");
             br.close();
             br1.close();
         }catch(IOException e){

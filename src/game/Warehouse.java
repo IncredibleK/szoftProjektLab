@@ -27,30 +27,62 @@ public class Warehouse {
         SetNeighbours();
     }
 
+    /**
+     * A pálya méretét beállító függvény
+     * @param row       Sorok száma
+     * @param column    Oszlopok száma
+     */
     public void SetDimensions(int row,int column)
     {
         fields = new Field[row][column];
     }
+
+    /**
+     * Sorok számot lekérdező függvény
+     * @return
+     */
     public int getRow()
     {
         return fields.length;
     }
+
+    /**
+     * Oszlopok számát lekérdező függvény
+     * @return
+     */
     public int getColumn()
     {
         return fields[0].length;
     }
-    public void setAllFields(int row, int column)
-    {
-        fields = new Field[row][column];
-    }
+
+    /**
+     * A pályában szereplő egyik mezőt beállító függvény
+     * @param row        Sor, ahol van a pályán belül
+     * @param column    Oszlop, ahol a pályán van
+     * @param field     Mező, amit a pályára helyez el
+     */
     public void setField(int row, int column, Field field)
     {
         fields[row][column] = field;
     }
+
+    /**
+     A pályában szereplő egyik mezőt visszaadó függvény
+     * @param row        Sor koordináta
+     * @param column    Oszlop koordináta
+     * @return
+     */
     public Field getField(int row, int column)
     {
         return fields[row][column];
     }
+
+    /**
+     *  A pályán egyik koordinátán álló tárgyat visszaadó függvény
+     * @param row       Sor koordináta
+     * @param column    Oszlop koordináta
+     * @return
+     */
     public Thing getThing(int row, int column)
     {
         return fields[row][column].getThing();
@@ -59,11 +91,22 @@ public class Warehouse {
     public void setPlayerCount(int szam){
         playerCount = szam;
     }
+
+    /**
+     * Beállítja a dobozok számát
+     * @param szam szám
+     */
     public void setColouredBoxCount(int szam){
         colouredBoxCount = szam;
     }
 
-
+    /**
+     * Meghívják kívülről, és eggyel növeli a dobozok számát
+     */
+    public void increaseColouredBoxCount()
+    {
+        setColouredBoxCount(colouredBoxCount+1);
+    }
 
     /**
      * Színes dobozok számát csökkentő függvény, véget vet a játéknak, ha egy feltétel teljesül
@@ -122,5 +165,4 @@ public class Warehouse {
             }
         }
     }
-
 }

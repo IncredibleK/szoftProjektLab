@@ -62,6 +62,10 @@ public abstract class Thing {
      */
     public abstract void Die();
 
+    /**
+     * Beállítja amelyik Field-en áll
+     * @param f
+     */
     public void SetField(Field f)
     {
         field = f;

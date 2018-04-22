@@ -25,33 +25,6 @@ public class Player extends Thing {
     }
 
     /**
-     *  Ütközteti a Player-t és a kapott Player-t,
-     *  nem léphet tovább a cselekvést indító Player.
-     * @param d A mozgás iránya
-     * @param p Az érkező Player
-     * @param s A játékos ereje
-     * @return
-     */
-
-  /*  public int Collide (Direction d, Player p, double s){
-        System.out.println("Player collide2 override");return 0;
-    }
-
-    /**
-     * Ütközeti a Player-t és a Box-ot. Box tolja a Playert.
-     * @param d A mozgás iránya
-     * @param b Az érkező Box
-     * @param s A játékos ereje
-     * @return
-
-    public int Collide (Direction d, Box b, double s){
-        //tmp: <return field.TryPlyer(d);> szét kellett választani h jó sorrendben fusson a call és return
-        System.out.println("Player collide override");
-        int tmp = field.TryMove(d, strength);
-        return tmp;
-    }
-*/
-    /**
      *
     Ütközeti a Player-t és a Box-ot. Box tolja a Playert.
             * @param d A mozgás iránya
@@ -64,10 +37,7 @@ public class Player extends Thing {
         if(t instanceof Player)
             return 0;
         else
-        {        //tmp: <return field.TryPlyer(d);> szét kellett választani h jó sorrendben fusson a call és return
-           // System.out.println("Player collide override");
             tmp = field.TryMove(d, strength);
-        }
         return tmp;
     }
     /**
@@ -82,9 +52,13 @@ public class Player extends Thing {
         }
         else
             tmp.TryMove(d, this, strength);
-
     }
 
+    /**
+     * Új Fieldre léptető függvény
+     * @param f az új mező
+     * @return
+     */
     public int AcceptMove (Field f){
         int tmp = 0;
         if(f instanceof Wall)

@@ -30,6 +30,7 @@ public class Game {
     public void StartGame(String file){
         String line = null;
         running = new Warehouse();
+        running.setPlayerCount(2);
         Prototype.getInstance().AddWarehouse(running);
         try {
             // BufferedReader-be csomagolt FileReader, ami alapján a raktárat, és azoknak az entitásait felépítjük
@@ -53,7 +54,6 @@ public class Game {
                 //Második iteráció, ami az oszlopokon megy végig
                 for(int curColumn = 0; curColumn<column; curColumn++)
                 {
-              //      System.out.print(sorok[curColumn]);
                     //Sorok alapján a megfelelő mező létrehozása, prototípus-ba átadjuk, és hozzáadjuk a raktárhoz
                     switch(sorok[curColumn])
                     {
@@ -120,9 +120,7 @@ public class Game {
                             break;
                     }
                 }
-          //      System.out.println();
             }
-         //   System.out.println();
             //Üres sor beolvasása
             bufferedReader.readLine();
 
@@ -133,7 +131,6 @@ public class Game {
                 String[] sorok = line.split(",");
                 for(int curColumn = 0; curColumn<column; curColumn++)
                 {
-                 //   System.out.print(sorok[curColumn]);
                     switch(sorok[curColumn])
                     {
                         //Első játékos létrehozása
@@ -171,9 +168,7 @@ public class Game {
                             break;
                     }
                 }
-            //    System.out.println();
             }
-           // System.out.println();
             bufferedReader.readLine();
 
             //Párosítást megvalósító függvény (Színesláda - Színesmezőhöz, illetve Kapcsoló - Speciális Lyukhoz)
@@ -194,7 +189,8 @@ public class Game {
                             //Színesmező példányosítása
                             ColouredField cb = (ColouredField) running.getField(Integer.parseInt(koord1[0]), Integer.parseInt(koord1[1]));
                             //Színesmezőhöz rendeljük a színesládát
-                            cb.SetBox((ColouredBox) running.getField(Integer.parseInt(koord2[0]), Integer.parseInt(koord2[1])).getThing());
+                            cb.SetBox((ColouredBox) running.getThing(Integer.parseInt(koord2[0]), Integer.parseInt(koord2[1])));
+                            running.increaseColouredBoxCount();
                             cb.InitColour();
                             break;
                         //Kapcsoló - Speciális Lyuk párosítás megvalósítása

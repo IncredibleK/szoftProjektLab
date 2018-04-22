@@ -154,6 +154,7 @@ public class Prototype {
                         break;
                     case "movePlayer":
                         movePlayer(st[1], st[2]);
+                        if(ware!=null)
                         Draw();
                         break;
                     case "createEffect":
@@ -248,30 +249,24 @@ public class Prototype {
             PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(filePath)));
             for(int j=0;j<ware.getRow();j++){
                 for(int i=0;i<ware.getColumn();i++){
-                //    System.out.print(fields.get(ware.getField(j,i)));
                     pw.write(fields.get(ware.getField(j,i)));
                     if(i!=ware.getColumn()-1)pw.write(",");
                 }
-               // System.out.println();
                 pw.println();
             }
-         //   System.out.println();
             pw.println();
             Thing t;
             for(int j=0;j<ware.getRow();j++){
                 for(int i=0;i<ware.getColumn();i++){
                     if((t = ware.getThing(j,i))!=null) {
-             //           System.out.print(things.get(ware.getThing(j, i)));
                         pw.write(things.get(ware.getThing(j, i)));
                     }
                     else
                     {
-           //             System.out.print("n");
                         pw.write("n");
                     }
                     if(i!=ware.getColumn()-1)pw.write(",");
                 }
-          //      System.out.println();
                 pw.println();
             }
             pw.close();

@@ -8,6 +8,10 @@ public class Switch extends Field {
 
     private SpecialHole hole;
 
+    /**
+     * Beállítja a hozzá tartozó speciális lyukat
+     * @param h speciális lyuk
+     */
     public void SetHole( SpecialHole h){ hole = h;}
 
     /**

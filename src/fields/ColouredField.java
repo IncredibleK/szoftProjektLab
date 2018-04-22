@@ -12,12 +12,24 @@ public class ColouredField extends Field {
     /** A hozzá tartozó doboz */
     private ColouredBox box;
 
+    /**
+     * Beállítja a hozzá tartozó színes dobozt
+     * @param cb Színes doboz
+     */
     public void SetBox(ColouredBox cb){ box=cb; }
+
+    /**
+     * Beállítja a doboz színét adott színre
+     * @param c Szín
+     */
     private void SetColour(Colours c){ this.colour = c; }
 
+    /**
+     * Egy új színt generál a konstruktorban
+     */
     public ColouredField()
     {
-        colour = new Colours();
+        SetColour(new Colours());
     }
 
     /**

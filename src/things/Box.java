@@ -20,13 +20,10 @@ public class Box extends Thing {
         return tmp;
     }
 
-
-
     /**
      * Hole-ra érkezve meghívódik ez a metódust
      */
     public void Die(){
         field.Remove(this);
     }
-
 }

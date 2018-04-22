@@ -39,7 +39,6 @@ public class Field {
      * @return
      */
     public Field GetNeighbour(Direction d){
-
         return neighbours.get(d);
     }
 
@@ -79,9 +78,6 @@ public class Field {
      */
     public int Interact(Thing t){ return 0;}
 
-    public int Interact(ColouredBox cb){return 0;}
-
-
     /**
      * A mezőn álló játékos ezzel jelzi helyváltoztatási szándékát.
      * @param d A mozgás iránya
@@ -106,6 +102,7 @@ public class Field {
         if(s < effect) {
             return 0;
         }
+        s-=effect;
         if (this.thing==null){
             tmp = t.AcceptMove(this);
         } else{
@@ -118,6 +115,10 @@ public class Field {
 
     public void SetThing(Thing t){ thing = t;}
 
+    /**
+     * Beállítja a mezőn adott effektet
+     * @param effect  Effekt
+     */
     public void setEffect(double effect) {
         this.effect = effect;
     }

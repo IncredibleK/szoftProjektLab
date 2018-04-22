@@ -195,6 +195,7 @@ public class Game {
                             ColouredField cb = (ColouredField) running.getField(Integer.parseInt(koord1[0]), Integer.parseInt(koord1[1]));
                             //Színesmezőhöz rendeljük a színesládát
                             cb.SetBox((ColouredBox) running.getField(Integer.parseInt(koord2[0]), Integer.parseInt(koord2[1])).getThing());
+                            cb.InitColour();
                             break;
                         //Kapcsoló - Speciális Lyuk párosítás megvalósítása
                         case "S":
@@ -234,7 +235,7 @@ public class Game {
      * Játék befejezését biztosító folyamat
      */
     public void EndGame(){
-
-
+            System.out.println("A játék véget ért!");
+            Prototype.getInstance().Clear();
     }
 }

@@ -70,7 +70,7 @@ public class Warehouse {
      */
     public void CBDecrease() {
         colouredBoxCount--;
-        if (true) {
+        if (colouredBoxCount==0) {
              // Játék referencia lekérdezése
             Game game = Game.getInstance();
              // Véget ér a játék, meghívjuk a singleton Game osztálynak a függvényét
@@ -82,7 +82,7 @@ public class Warehouse {
      */
     public void PDecrease(){
         playerCount--;
-        if(true) {
+        if(playerCount==1) {
              // Játék referencia lekérdezése
             Game game = Game.getInstance();
              // Véget ér a játék, meghívjuk a singleton Game osztálynak a függvényét

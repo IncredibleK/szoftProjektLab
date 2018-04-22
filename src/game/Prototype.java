@@ -129,7 +129,7 @@ public class Prototype {
     /**
      * Minden tárolt dolog ürítése.
      */
-    private void Clear() {
+    public void Clear() {
         things.clear();
         fields.clear();
         ware = null;
@@ -168,7 +168,6 @@ public class Prototype {
                         Draw();
                         break;
                     case "exit":
-                        Clear();
                         exit();
                         break;
                     default:

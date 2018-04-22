@@ -327,7 +327,7 @@ public class Prototype {
              }
 
             }
-            if(b)System.out.println("100%-os egyezes\n\n");
+            if(b)System.out.println("-- 100%-os egyezes\n\n");
             br.close();
             br1.close();
         }catch(IOException e){

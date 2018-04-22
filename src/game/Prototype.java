@@ -219,6 +219,8 @@ public class Prototype {
                         break;
                     case "movePlayer":
                         movePlayer(st[1], st[2]);
+                        System.out.println("Player " + st[1] + " moved:");
+                        Draw();
                         break;
                     case "createEffect":
                         createEffect(st[1], st[2]);
@@ -228,6 +230,8 @@ public class Prototype {
                         break;
                     case "loadMap":
                         loadMap(st[1]);
+                        System.out.println("Map loaded:");
+                        Draw();
                         break;
                     default:
                         break;

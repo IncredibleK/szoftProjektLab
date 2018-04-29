@@ -1,17 +1,21 @@
 package fields;
 
+import things.Box;
+import things.Player;
 import things.Thing;
 
 public class Hole extends Field {
 
     /**
      * Ami rálép az meghívja, a Hole azt megsemmisíti.
-     * @param t A rálépő Thing
+     * @param p A rálépő Thing
      * @return 0
      */
-    public int Interact(Thing t){
-        t.Die();
+
+    public int Interact(Player p){
+        p.Die();
         return 0;
     }
+    public int Interact(Box b){ return 0;}
 
 }

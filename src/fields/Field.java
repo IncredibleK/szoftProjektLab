@@ -56,10 +56,16 @@ public class Field extends Steppable {
      * @param t A csatolandó tárgy
      * @return 0
      */
-    public int Add(Thing t){
+    public int Add(Player t){
         this.thing = t;
         t.SetField(this);
-        int tmp = Interact(t);
+        int tmp = Interact(t); /////////////////////////
+        return tmp;
+    }
+    public int Add(Box t){
+        this.thing = t;
+        t.SetField(this);
+        int tmp = Interact(t); /////////////////////////
         return tmp;
     }
 
@@ -73,10 +79,11 @@ public class Field extends Steppable {
 
     /**
      * Virtuális függvény, itt nem csinál semmit
-     * @param t
+     * @param p
      * @return
      */
-    public int Interact(Thing t){ return 0;}
+    public int Interact(Player p){ return 0;}
+    public int Interact(Box b){ return 0;}
 
     /**
      * A mezőn álló játékos ezzel jelzi helyváltoztatási szándékát.
@@ -114,6 +121,10 @@ public class Field extends Steppable {
     }
 
     public void SetThing(Thing t){ thing = t;}
+    /*
+    public void SetThing(Player t){ thing = t;}
+    public void SetThing(Box t){ thing = t;}
+    */
 
     /**
      * Beállítja a mezőn adott effektet

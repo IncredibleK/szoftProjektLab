@@ -1,6 +1,8 @@
 package fields;
 
 import enums.Direction;
+import things.Box;
+import things.Player;
 import things.Thing;
 
 import java.util.HashMap;
@@ -36,7 +38,9 @@ public abstract class Steppable {
      * @param t A csatolandó tárgy
      * @return 0
      */
-    public abstract int Add(Thing t);
+    //public abstract int Add(Thing t);
+    public abstract int Add(Player t);
+    public abstract int Add(Box t);
 
     /**
      * Az éppen rajta álló tárgyat eltávolítja a mezőről
@@ -45,10 +49,11 @@ public abstract class Steppable {
 
     /**
      * Virtuális függvény, itt nem csinál semmit
-     * @param t
+     * @param p
      * @return
      */
-    public abstract int Interact(Thing t);
+    public abstract int Interact(Player p);
+    public abstract int Interact(Box b);
 
     /**
      * A mezőn álló játékos ezzel jelzi helyváltoztatási szándékát.

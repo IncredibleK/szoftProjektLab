@@ -2,13 +2,14 @@ package things;
 
 import enums.Direction;
 import fields.Field;
+import fields.Steppable;
 import fields.Wall;
 import game.Warehouse;
 
 public abstract class Thing {
 
     Warehouse warehouse;
-    Field field;
+    Steppable field;
 
     public void setWarehouse(Warehouse w){
         warehouse = w;
@@ -39,7 +40,7 @@ public abstract class Thing {
      * @param f az új mező
      * @return
      */
-    public int AcceptMove(Field f){
+    public int AcceptMove(Steppable f){
         int tmp = 0;
         if(!(f instanceof Wall)) {
             field.Remove(this);
@@ -66,7 +67,7 @@ public abstract class Thing {
      * Beállítja amelyik Field-en áll
      * @param f
      */
-    public void SetField(Field f)
+    public void SetField(Steppable f)
     {
         field = f;
     }

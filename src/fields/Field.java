@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import things.*;
 
-public class Field {
+public class Field extends Steppable {
 
     private Map<Direction, Field> neighbours;
     protected Thing thing;

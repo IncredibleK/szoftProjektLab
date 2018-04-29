@@ -28,10 +28,11 @@ public class Switch extends Field {
      * @param t Rálépő tárgy
      * @return
      */
-    public int Interact(Thing t) {
-        if(hole!=null && t instanceof Box) {
+    public int Interact(Box b) {
+        if(hole!=null) {
             hole.SetOpen(true);
         }
         return 0;
     }
+
 }

@@ -38,9 +38,21 @@ public abstract class Steppable {
      * @param t A csatolandó tárgy
      * @return 0
      */
+
     //public abstract int Add(Thing t);
-    public abstract int Add(Player t);
-    public abstract int Add(Box t);
+
+    public int Add(Player t){
+        this.thing = t;
+        t.SetField(this);
+        int tmp = Interact(t);
+        return tmp;
+    }
+    public int Add(Box t){
+        this.thing = t;
+        t.SetField(this);
+        int tmp = Interact(t);
+        return tmp;
+    }
 
     /**
      * Az éppen rajta álló tárgyat eltávolítja a mezőről
@@ -52,9 +64,19 @@ public abstract class Steppable {
      * @param p
      * @return
      */
-    public abstract int Interact(Player p);
-    public abstract int Interact(Box b);
 
+    public int Interact(Player p){
+        System.out.println("Player");
+        return 0;
+    }
+
+    public int Interact(Box b){
+        System.out.println("Box");
+        return 0;}
+
+    public int Interact(Thing t){
+        System.out.println("Thing");
+        return 0;}
     /**
      * A mezőn álló játékos ezzel jelzi helyváltoztatási szándékát.
      * @param d A mozgás iránya

@@ -51,6 +51,9 @@ public class Field extends Steppable {
         return thing;
     }
 
+
+
+
     /**
      * Egy tárgyat hozzácsatol az aktuális mezőhöz.
      * @param t A csatolandó tárgy
@@ -63,18 +66,11 @@ public class Field extends Steppable {
         int tmp = Interact(t); /////////////////////////
         return tmp;
     }*/
-    public int Add(Player t){
-        this.thing = t;
-        t.SetField(this);
-        int tmp = Interact(t); /////////////////////////
-        return tmp;
-    }
-    public int Add(Box t){
-        this.thing = t;
-        t.SetField(this);
-        int tmp = Interact(t); /////////////////////////
-        return tmp;
-    }
+
+
+
+
+
 
     /**
      * Az éppen rajta álló tárgyat eltávolítja a mezőről
@@ -84,21 +80,7 @@ public class Field extends Steppable {
 
     }
 
-    /**
-     * Virtuális függvény, itt nem csinál semmit
-     * @param p
-     * @return
-     */
-    public int Interact(Player p){
-        System.out.println("player");
-        return 0;
-    }
-    public int Interact(Box b){
-        System.out.println("Box");
-        return 0;}
-    public int Interact(Thing t){
-        System.out.println("Thing");
-        return 0;}
+
 
     /**
      * A mezőn álló játékos ezzel jelzi helyváltoztatási szándékát.

@@ -40,14 +40,14 @@ public abstract class Thing {
      * @param f az új mező
      * @return
      */
-    public int AcceptMove(Steppable f){
+    public  abstract int AcceptMove(Steppable f);/*{
         int tmp = 0;
         if(!(f instanceof Wall)) {
             field.Remove(this);
             tmp = f.Add(this);
         }
         return tmp;
-    }
+    }*/
 
     /**
      * Nem csinál semmit

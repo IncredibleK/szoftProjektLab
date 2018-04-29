@@ -1,7 +1,9 @@
 package things;
 
+import com.sun.org.apache.xerces.internal.impl.xpath.XPath;
 import enums.Direction;
 import fields.Field;
+import fields.Steppable;
 import fields.Wall;
 import game.Prototype;
 
@@ -59,7 +61,7 @@ public class Player extends Thing {
      * @param f az új mező
      * @return
      */
-    public int AcceptMove (Field f){
+    public int AcceptMove (Steppable f){
         int tmp = 0;
         if(f instanceof Wall)
             Die();

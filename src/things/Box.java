@@ -2,6 +2,7 @@ package things;
 
 import enums.Direction;
 import fields.Field;
+import fields.Steppable;
 import fields.Wall;
 
 public class Box extends Thing {
@@ -25,5 +26,14 @@ public class Box extends Thing {
      */
     public void Die(){
         field.Remove(this);
+    }
+
+    public int AcceptMove(Steppable f){
+        int tmp = 0;
+        if(!(f instanceof Wall)) {
+            field.Remove(this);
+            tmp = f.Add(this);
+        }
+        return tmp;
     }
 }

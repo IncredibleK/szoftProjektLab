@@ -97,11 +97,6 @@ public class Field extends Steppable {
 
     public void SetThing(Thing t){ thing = t;}
 
-    public void SetThing(Player t){
-        thing = t;
-    }
-    public void SetThing(Box t){ thing = t;}
-
 
     /**
      * Beállítja a mezőn adott effektet

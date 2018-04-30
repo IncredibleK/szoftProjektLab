@@ -9,9 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Steppable {
-    private Map<Direction, Field> neighbours;
+
     protected Thing thing;
-    protected double effect;
 
     /**
      * Az adott irányba beállítja a szomszédos mezőt.
@@ -38,8 +37,6 @@ public abstract class Steppable {
      * @param t A csatolandó tárgy
      * @return 0
      */
-
-    //public abstract int Add(Thing t);
 
     public int Add(Player t){
         this.thing = t;
@@ -74,9 +71,7 @@ public abstract class Steppable {
         System.out.println("BoxInteract");
         return 0;}
 
-    public int Interact(Thing t){
-        System.out.println("ThingInteract");
-        return 0;}
+
     /**
      * A mezőn álló játékos ezzel jelzi helyváltoztatási szándékát.
      * @param d A mozgás iránya
@@ -94,7 +89,6 @@ public abstract class Steppable {
      */
     public abstract int TryMove(Direction d, Thing t, double s);
 
-    public abstract void SetThing(Thing t);
 
     /**
      * Beállítja a mezőn adott effektet

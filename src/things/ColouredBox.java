@@ -21,12 +21,5 @@ public class ColouredBox extends Box{
      */
     public void SetColour(Colours c){ colour = c;}
 
-    public int AcceptMove(Steppable f){
-        int tmp = 0;
-        if(!(f instanceof Wall)) {
-            field.Remove(this);
-            tmp = f.Add(this);
-        }
-        return tmp;
-    }
+
 }

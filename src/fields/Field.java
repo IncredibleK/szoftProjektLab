@@ -52,26 +52,6 @@ public class Field extends Steppable {
     }
 
 
-
-
-    /**
-     * Egy tárgyat hozzácsatol az aktuális mezőhöz.
-     * @param t A csatolandó tárgy
-     * @return 0
-     */
-    /*
-    public int Add(Thing t){
-        this.thing = t;
-        t.SetField(this);
-        int tmp = Interact(t); /////////////////////////
-        return tmp;
-    }*/
-
-
-
-
-
-
     /**
      * Az éppen rajta álló tárgyat eltávolítja a mezőről
      */

@@ -2,9 +2,7 @@ package things;
 
 import com.sun.org.apache.xerces.internal.impl.xpath.XPath;
 import enums.Direction;
-import fields.Field;
-import fields.Steppable;
-import fields.Wall;
+import fields.*;
 import game.Prototype;
 
 public class Player extends Thing {
@@ -56,12 +54,64 @@ public class Player extends Thing {
             tmp.TryMove(d, this, strength);
     }
 
+
+
+
+
+
+
+    public int AcceptMove(Field f){
+        int tmp = 0;
+
+        field.Remove(this);
+        tmp = f.Add(this);
+
+        return tmp;
+    }
+
+    public int AcceptMove(Hole f){
+        int tmp = 0;
+
+        field.Remove(this);
+        tmp = f.Add(this);
+
+        return tmp;
+    }
+
+    public int AcceptMove(Switch f){
+        int tmp = 0;
+
+        field.Remove(this);
+        tmp = f.Add(this);
+
+        return tmp;
+    }
+
+
+
+    /**
+     * Nem csinál semmit
+     * @param w A kapott fal, amire lépnie kéne.
+     * @return 0
+     */
+    public int AcceptMove(Wall w){
+        Die();
+        return 0;
+    }
+
+
+
+
+
+
+
+
     /**
      * Új Fieldre léptető függvény
      * @param f az új mező
      * @return
      */
-    public int AcceptMove (Steppable f){
+   /* public int AcceptMove (Steppable f){
         int tmp = 0;
         if(f instanceof Wall)
             Die();
@@ -71,17 +121,14 @@ public class Player extends Thing {
             tmp = f.Add(this);
         }
         return tmp;
-    }
+    }*/
 
     /**
      * Player-t falra toltak meghal
      * @param w A kapott fal ahova lépne
      * @return 0
      */
-    public int AcceptMove (Wall w){
-        Die();
-        return 0;
-    }
+
 
     /**
      * Lyukba esés, esetleg amikor egy ládát rátolnak,

@@ -1,9 +1,7 @@
 package things;
 
 import enums.Direction;
-import fields.Field;
-import fields.Steppable;
-import fields.Wall;
+import fields.*;
 
 public class Box extends Thing {
 
@@ -28,12 +26,41 @@ public class Box extends Thing {
         field.Remove(this);
     }
 
-    public int AcceptMove(Steppable f){
+
+    public int AcceptMove(Field f){
         int tmp = 0;
-        if(!(f instanceof Wall)) {
-            field.Remove(this);
-            tmp = f.Add(this);
-        }
+
+        field.Remove(this);
+        tmp = f.Add(this);
+
         return tmp;
     }
+    public int AcceptMove(Hole f){
+        int tmp = 0;
+
+        field.Remove(this);
+        tmp = f.Add(this);
+
+        return tmp;
+    }
+    public int AcceptMove(Switch f){
+        int tmp = 0;
+
+        field.Remove(this);
+        tmp = f.Add(this);
+
+        return tmp;
+    }
+
+
+
+    /**
+     * Nem csinál semmit
+     * @param w A kapott fal, amire lépnie kéne.
+     * @return 0
+     */
+    public int AcceptMove(Wall w){return 0;}
+
+
+
 }

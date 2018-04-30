@@ -16,10 +16,10 @@ public class Main {
         f1.Add(p);
 
         p.StartMove(Direction.Right);
-        /*
-        Warehouse w = new Warehouse();
-        Prototype.getInstance().Start();
-        */
+
+        //Warehouse w = new Warehouse();
+       // Prototype.getInstance().Start();
+
 
     }
 }

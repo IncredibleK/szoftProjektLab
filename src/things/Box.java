@@ -5,8 +5,6 @@ import fields.*;
 
 public class Box extends Thing {
 
-
-
     /**
      * Ha a helyet változtató Thing új Field-jén áll egy Thing, ez hívja meg,
      * hogy értesítse
@@ -18,7 +16,6 @@ public class Box extends Thing {
         int tmp = t.Collide(d, this, s);
         return tmp;
     }
-
 
     /**
      * Egy, a doboz által elfoglalt mezőre érkezni kívánó játékos(Player) vagy doboz(Box) hívja meg.
@@ -71,8 +68,6 @@ public class Box extends Thing {
         return tmp;
     }
 
-
-
     /**
      * Nem csinál semmit
      * @param w A kapott fal, amire lépnie kéne.
@@ -80,8 +75,6 @@ public class Box extends Thing {
      */
     public int AcceptMove(Wall w){
         System.out.println("wall accept");
-        return 0;}
-
-
-
+        return 0;
+    }
 }

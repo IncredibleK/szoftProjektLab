@@ -7,6 +7,7 @@ import things.Thing;
 
 public class Wall extends Field {
 
+    //Kell mert különben nem a Wall-os AcceptMove-ot hívja
     @Override
     public int TryMove(Direction d, Thing t, double s){
         int tmp =0;
@@ -24,7 +25,7 @@ public class Wall extends Field {
         return tmp;
     }
 
-    public void Remove(Thing t){ }
+    public void Remove(Thing t){ } //???
 
     public int Add(Player t){
         this.thing = t;

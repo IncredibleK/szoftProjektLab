@@ -24,7 +24,6 @@ public class Player extends Thing {
         this.points += points;
     }
 
-
     /**
      * Ha a helyet változtató Thing új Field-jén áll egy Thing, ez hívja meg,
      * hogy értesítse
@@ -37,12 +36,9 @@ public class Player extends Thing {
         return tmp;
     }
 
-
-
     /**
-     *
-    Ütközeti a Player-t és a Box-ot. Box tolja a Playert.
-            * @param d A mozgás iránya
+     * Ütközeti a Player-t és a Box-ot. Box tolja a Playert.
+     * @param d A mozgás iránya
      * @param t Az érkező Box, vagy Player
      * @param s A játékos ereje
      * @return
@@ -53,7 +49,10 @@ public class Player extends Thing {
         return tmp;
     }
 
-    public int Collide (Direction d, Player t, double s){ return 0;}
+    public int Collide (Direction d, Player t, double s){
+        //System.out.println("Player: Collide player"); //OK
+        return 0;
+    }
 
 
     /**
@@ -64,50 +63,13 @@ public class Player extends Thing {
     public void StartMove(Direction d){
         Field tmp = field.GetNeighbour(d);
         /*
-        if (tmp instanceof Wall){ //5.3.8
+        if (tmp instanceof Wall){ //5.3.8 OK
             //fal
         }
         else
         */
             tmp.TryMove(d, this, strength);
     }
-
-
-
-
-
-
-
-    public int AcceptMove(Field f){
-        int tmp = 0;
-
-        field.Remove(this);
-        tmp = f.Add(this);
-        System.out.println("PlayerFieldAcceptmove");
-        return tmp;
-    }
-
-    public int AcceptMove(Hole f){
-        int tmp = 0;
-
-        field.Remove(this);
-        tmp = f.Add(this);
-
-        System.out.println("PlayerHoleAcceptmove");
-        return tmp;
-    }
-
-    public int AcceptMove(Switch f){
-        int tmp = 0;
-
-        field.Remove(this);
-        tmp = f.Add(this);
-
-        System.out.println("PlayerSwitchAcceptmove");
-        return tmp;
-    }
-
-
 
     /**
      * Nem csinál semmit
@@ -121,8 +83,14 @@ public class Player extends Thing {
         return 0;
     }
 
+    public int AcceptMove(Field f){ //Field, Switch, Hole ra ez
+        int tmp = 0;
 
-
+        field.Remove(this);
+        tmp = f.Add(this);
+        System.out.println("PlayerFieldAcceptmove");
+        return tmp;
+    }
 
     /**
      * Lyukba esés, esetleg amikor egy ládát rátolnak,
@@ -130,7 +98,7 @@ public class Player extends Thing {
      * a játékosok számát csökkenti eggyel.
      */
     public void Die(){
-       //warehouse.PDecrease();
+       //warehouse.PDecrease(); /////////////////////////////////////////////////////Ez kell
         field.Remove(this);
         System.out.println("PlayerDie");
     }

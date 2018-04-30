@@ -60,8 +60,6 @@ public class Field extends Steppable {
 
     }
 
-
-
     /**
      * A mezőn álló játékos ezzel jelzi helyváltoztatási szándékát.
      * @param d A mozgás iránya

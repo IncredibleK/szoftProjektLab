@@ -41,10 +41,6 @@ public abstract class Thing {
      * @return
      */
     public abstract int AcceptMove(Field f);
-    public abstract int AcceptMove(Hole f);
-    public abstract int AcceptMove(Switch f);
-
-
 
     /**
      * Nem csinál semmit
@@ -52,7 +48,6 @@ public abstract class Thing {
      * @return 0
      */
     public abstract int AcceptMove(Wall w);
-
 
     /**
      * A leszármazottak felüldefiniálják

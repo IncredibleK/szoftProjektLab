@@ -47,10 +47,12 @@ public class Player extends Thing {
      */
     public void StartMove(Direction d){
         Field tmp = field.GetNeighbour(d);
+        /*
         if (tmp instanceof Wall){ //5.3.8
             //fal
         }
         else
+        */
             tmp.TryMove(d, this, strength);
     }
 
@@ -94,8 +96,10 @@ public class Player extends Thing {
      * @param w A kapott fal, amire lépnie kéne.
      * @return 0
      */
+
     public int AcceptMove(Wall w){
-        Die();
+        //System.out.println("player:accetmove W");
+        //Die();
         return 0;
     }
 

@@ -59,7 +59,9 @@ public class Box extends Thing {
      * @param w A kapott fal, amire lépnie kéne.
      * @return 0
      */
-    public int AcceptMove(Wall w){return 0;}
+    public int AcceptMove(Wall w){
+        System.out.println("wall accept");
+        return 0;}
 
 
 

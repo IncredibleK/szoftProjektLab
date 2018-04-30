@@ -66,16 +66,16 @@ public abstract class Steppable {
      */
 
     public int Interact(Player p){
-        System.out.println("Player");
+        //System.out.println("Player");
         return 0;
     }
 
     public int Interact(Box b){
-        System.out.println("Box");
+        //System.out.println("Box");
         return 0;}
 
     public int Interact(Thing t){
-        System.out.println("Thing");
+        //System.out.println("Thing");
         return 0;}
     /**
      * A mezőn álló játékos ezzel jelzi helyváltoztatási szándékát.

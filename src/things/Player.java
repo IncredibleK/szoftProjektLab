@@ -24,6 +24,7 @@ public class Player extends Thing {
         this.points += points;
     }
 
+
     /**
      *
     Ütközeti a Player-t és a Box-ot. Box tolja a Playert.
@@ -40,6 +41,8 @@ public class Player extends Thing {
             tmp = field.TryMove(d, strength);
         return tmp;
     }
+
+
     /**
      * Az egész mozgatást egy irányba elkezdi,
      * majd pontszámát növeli
@@ -67,7 +70,7 @@ public class Player extends Thing {
 
         field.Remove(this);
         tmp = f.Add(this);
-
+        System.out.println("PlayerFieldAcceptmove");
         return tmp;
     }
 
@@ -77,6 +80,7 @@ public class Player extends Thing {
         field.Remove(this);
         tmp = f.Add(this);
 
+        System.out.println("PlayerHoleAcceptmove");
         return tmp;
     }
 
@@ -86,6 +90,7 @@ public class Player extends Thing {
         field.Remove(this);
         tmp = f.Add(this);
 
+        System.out.println("PlayerSwitchAcceptmove");
         return tmp;
     }
 
@@ -98,40 +103,12 @@ public class Player extends Thing {
      */
 
     public int AcceptMove(Wall w){
-        //System.out.println("player:accetmove W");
+        System.out.println("PlayerWallAcceptmove");
         //Die();
         return 0;
     }
 
 
-
-
-
-
-
-
-    /**
-     * Új Fieldre léptető függvény
-     * @param f az új mező
-     * @return
-     */
-   /* public int AcceptMove (Steppable f){
-        int tmp = 0;
-        if(f instanceof Wall)
-            Die();
-        else
-        {
-            field.Remove(this);
-            tmp = f.Add(this);
-        }
-        return tmp;
-    }*/
-
-    /**
-     * Player-t falra toltak meghal
-     * @param w A kapott fal ahova lépne
-     * @return 0
-     */
 
 
     /**
@@ -140,8 +117,9 @@ public class Player extends Thing {
      * a játékosok számát csökkenti eggyel.
      */
     public void Die(){
-        warehouse.PDecrease();
+       //warehouse.PDecrease();
         field.Remove(this);
+        System.out.println("PlayerDie");
     }
 
     /**

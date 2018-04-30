@@ -45,14 +45,6 @@ public abstract class Thing {
     public abstract int AcceptMove(Field f);
     public abstract int AcceptMove(Hole f);
     public abstract int AcceptMove(Switch f);
-    /*{
-        int tmp = 0;
-        if(!(f instanceof Wall)) {
-            field.Remove(this);
-            tmp = f.Add(this);
-        }
-        return tmp;
-    }*/
 
 
 

@@ -19,7 +19,7 @@ public class Main {
         f1.Add(p);
         p.StartMove(Direction.Right);
 
-        System.out.println("\n\n\n");
+        System.out.println("\n");
 
         Field f3 = new Field();
         Hole h1= new Hole();

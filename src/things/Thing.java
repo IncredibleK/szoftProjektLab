@@ -24,10 +24,7 @@ public abstract class Thing {
      * @param t A használni kívánt mezőt elfogaló Thing
      * @return
      */
-    public int MakeCollision (Direction d, Thing t, double s){
-        int tmp = t.Collide(d, this, s);
-        return tmp;
-    }
+    public abstract int MakeCollision (Direction d, Thing t, double s);
 
     /**
      * A leszármazottak felüldefiniálják. Az érkező Thing hívja.
@@ -35,7 +32,8 @@ public abstract class Thing {
      * @param t Az érkező Thing
      * @return 0
      */
-    public abstract int Collide (Direction d, Thing t, double s);
+    public abstract int Collide (Direction d, Box t, double s);
+    public abstract int Collide (Direction d, Player t, double s);
 
     /**
      * Végrehajtja a léptetést. A használni kívánt szabad mező hívja

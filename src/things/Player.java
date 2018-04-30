@@ -26,6 +26,20 @@ public class Player extends Thing {
 
 
     /**
+     * Ha a helyet változtató Thing új Field-jén áll egy Thing, ez hívja meg,
+     * hogy értesítse
+     * @param d A mozgás iránya
+     * @param t A használni kívánt mezőt elfogaló Thing
+     * @return
+     */
+    public int MakeCollision (Direction d, Thing t, double s){
+        int tmp = t.Collide(d, this, s);
+        return tmp;
+    }
+
+
+
+    /**
      *
     Ütközeti a Player-t és a Box-ot. Box tolja a Playert.
             * @param d A mozgás iránya
@@ -33,14 +47,13 @@ public class Player extends Thing {
      * @param s A játékos ereje
      * @return
      */
-    public int Collide (Direction d, Thing t, double s){
+    public int Collide (Direction d, Box t, double s){
         int tmp = 0;
-        if(t instanceof Player)
-            return 0;
-        else
-            tmp = field.TryMove(d, strength);
+        tmp = field.TryMove(d, strength);
         return tmp;
     }
+
+    public int Collide (Direction d, Player t, double s){ return 0;}
 
 
     /**
